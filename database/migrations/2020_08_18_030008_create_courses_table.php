@@ -20,7 +20,7 @@ class CreateCoursesTable extends Migration
             $table->string('image')->nullable();
             $table->integer('times')->nullable();
             $table->integer('price')->nullable();
-            $table->integer('quizzes')->nullable();
+            $table->integer('quizze')->nullable();
             $table->bigInteger('teacher_id');
             $table->timestamps();
             $table->softDeletes();
