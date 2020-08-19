@@ -525,4 +525,101 @@
   @include font_UTM(bold, 15px, #FFFFFF);
 }
 
+.login-register {
+  .form-label {
+    @include font_UTM(bold, 20px, #505353);
+  }
+
+  .modal-header {
+    span {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .modal-title-login {
+    background: #B2D235;
+    @include font_UTM(bold, 24px, #FFFFFF);
+  }
+
+  .modal-title-register {
+    @include font_UTM(bold, 24px, #B2D235);
+  }
+
+  .close-login {
+    background: $main_color;
+    left: -16px;
+    top: -8px;
+    border: 1px solid #B2D235;
+    border-radius: 50%;
+
+    span {
+      font-weight: bold;
+      color: #FFFFFF;
+      padding: 8px;
+    }
+  }
+
+  .form-input {
+    background: #F2F2F2;
+    border: 1px solid #E1E1E1;
+    height: 50px;
+  }
+
+  .label-rem {
+    @include font_UTM(bold, 18px, #505353);
+  }
+
+  .forgot {
+    a {
+      text-decoration-line: underline;
+      @include font_UTM(bold, 18px, $main_color);
+    }
+  }
+
+  .btn-login {
+    background: #B2D235;
+    box-shadow: inset 0px 1.5px 2px #6F8710;
+    border-radius: 22px;
+    padding: 12px 80px;
+    @include font_UTM(bold, 18px, #FFFFFF);
+  }
+
+  .btn-register {
+    background: #B2D235;
+    box-shadow: inset 0px 1.5px 2px #6F8710;
+    border-radius: 22px;
+    padding: 12px 70px;
+    @include font_UTM(bold, 18px, #FFFFFF);
+  }
+
+  .modal-footer {
+    margin-top: 37px;
+
+    .login-other {
+      line-height: 25px;
+      top:-33px; 
+      background-color: #FFFFFF;
+      @include font_UTM(bold, 20px, #505353);
+    }
+
+    .btn-google {
+      background: #DC4E41;
+      height: 45px;
+      color: #FFFFFF;
+    }
+
+    .btn-face {
+      background: #3B5999;
+      height: 45px;
+      color: #FFFFFF;
+    }
+
+    .logo-sz {
+      font-size: 21px;
+    }
+  }
+}
+
 @import 'responsive';
