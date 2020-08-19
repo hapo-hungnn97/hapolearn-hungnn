@@ -13,13 +13,13 @@ class CoursesSeeder extends Seeder
     public function run()
     {
         $name = [
-                    'HTML/CSS/js Tutorial', 
-                    'LARAVEL Tutorial', 
-                    'PHP Tutorial', 
-                    'CSS Tutorial', 
-                    'Ruby on rails Tutorial', 
-                    'Java Tutorial', 
-                    'SQL Fundamentals', 
+                    'HTML/CSS/js Tutorial',
+                    'LARAVEL Tutorial',
+                    'PHP Tutorial',
+                    'CSS Tutorial',
+                    'Ruby on rails Tutorial',
+                    'Java Tutorial',
+                    'SQL Fundamentals',
                     'Angular + NestJS'
                 ];
         $desc = 'I knew hardly anything about HTML, JS, and CSS before entering New Media.
