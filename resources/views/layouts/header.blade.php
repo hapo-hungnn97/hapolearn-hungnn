@@ -21,7 +21,7 @@
                     <a class="nav-link" href="#">lesson detail</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signModal">login/register</a>
+                    <a class="nav-link" href="" data-toggle="modal" data-target="#signModal">login/register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">profile</a>
