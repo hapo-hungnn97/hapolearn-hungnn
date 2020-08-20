@@ -30,3 +30,5 @@
         </div>
     </div>
 </div>
+
+@include('auth.login-register')
