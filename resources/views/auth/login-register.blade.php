@@ -15,9 +15,9 @@
                     @csrf
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Username:</label>
-                        <input type="email" class="form-control form-input" id="recipient-name" name="email" value="{{ old('email') }}">
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
+                        <input type="text" class="form-control form-input" id="recipient-name" name="name" value="{{ old('name') }}">
+                        @error('name')
+                            <span role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -26,7 +26,7 @@
                         <label for="recipient-name" class="form-label">Password:</label>
                         <input type="text" class="form-control form-input" id="recipient-name" name="password">
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
+                            <span role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
