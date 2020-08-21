@@ -46,36 +46,18 @@
     <div class="color-strip"></div>
     <div class="block-courses container">
         <div class="row">
+            @foreach($courses as $course)
             <div class="content-courses col-lg-4 col-md-4 col-9">
                 <div class="head background-left d-flex align-items-center justify-content-center">
-                    <img class="img-courses img-fluid" src="image/Rectangle7.png" alt="">
+                    <img class="img-courses img-fluid" src="{{ $course->image }}" alt="">
                 </div>
                 <div class="foot text-center">
-                    <div class="txt-content text-center pt-4">HTML/CSS/js Tutorial</div>
-                    <div class="txt-des text-center mt-2">I knew hardly anything about HTML, JS, and CSS before entering New Media. I had coded quite a bit, but never touched anything in regards to web development.</div>
+                    <div class="txt-content text-center pt-4">{{ $course->name }}</div>
+                    <div class="txt-des text-center mt-2">{{ $course->description }}</div>
                     <a href="" class="btn">Take This Course</a>
                 </div>
             </div>
-            <div class="content-courses col-lg-4 col-md-4 col-9">
-                <div class="head background-middle d-flex align-items-center justify-content-center">
-                    <img class="img-courses img-fluid" src="image/laravel.png" alt="">
-                </div>
-                <div class="foot text-center">
-                    <div class="txt-content text-center pt-4">LARAVEL Tutorial</div>
-                    <div class="txt-des text-center mt-2">I knew hardly anything about HTML, JS, and CSS before entering New Media. I had coded quite a bit, but never touched anything in regards to web development.</div>
-                    <a href="" class="btn">Take This Course</a>
-                </div>
-            </div>
-            <div class="content-courses col-lg-4 col-md-4 col-9">
-                <div class="head background-right d-flex align-items-center justify-content-center">
-                    <img class="img-courses img-fluid" src="image/Rectangle15.png" alt="">
-                </div>
-            <div class="foot text-center">
-                    <div class="txt-content text-center pt-4">PHP Tutorial</div>
-                    <div class="txt-des text-center mt-2">I knew hardly anything about HTML, JS, and CSS before entering New Media. I had coded quite a bit, but never touched anything in regards to web development.</div>
-                    <a href="" class="btn">Take This Course</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="other-courses container">
@@ -84,36 +66,18 @@
             <hr/>
         </div>
         <div class="row pt-lg-3">
+            @foreach($otherCourses as $otherCourse)
             <div class="content-courses col-lg-4 col-md-4 col-9">
                 <div class="head background-left-other d-flex align-items-center justify-content-center">
-                    <img class="img-courses img-fluid img-fix" src="image/CSS.png" alt="">
+                    <img class="img-courses img-fluid img-fix" src="{{ $otherCourse->image }}" alt="">
                 </div>
                 <div class="foot text-center">
-                    <div class="txt-content text-center pt-4">CSS Tutorial</div>
-                    <div class="txt-des text-center mt-2">I knew hardly anything about HTML, JS, and CSS before entering New Media,...</div>
+                    <div class="txt-content text-center pt-4">{{ $otherCourse->name }}</div>
+                    <div class="txt-des text-center mt-2">{{ $otherCourse->description }}</div>
                     <a href="" class="btn">Take This Course</a>
                 </div>
             </div>
-            <div class="content-courses col-lg-4 col-md-4 col-9">
-                <div class="head background-middle-other d-flex align-items-center justify-content-center">
-                    <img class="img-courses img-fluid img-fix" src="image/Group.png" alt="">
-                </div>
-                <div class="foot text-center">
-                    <div class="txt-content text-center pt-4">Ruby on rails Tutorial</div>
-                    <div class="txt-des text-center mt-2">I knew hardly anything about HTML, JS, and CSS before entering New Media,...</div>
-                    <a href="" class="btn">Take This Course</a>
-                </div>
-            </div>
-            <div class="content-courses col-lg-4 col-md-4 col-9">
-                <div class="head background-right-other d-flex align-items-center justify-content-center">
-                    <img class="img-courses img-fluid" src="image/java1.png" alt="">
-                </div>
-                <div class="foot text-center">
-                    <div class="txt-content text-center pt-4">Java Tutorial</div>
-                    <div class="txt-des text-center mt-2">I knew hardly anything about HTML, JS, and CSS before entering New Media,...</div>
-                    <a href="" class="btn">Take This Course</a>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="all-courses text-center pb-lg-5">
             <a href="">View All Our Courses</a>

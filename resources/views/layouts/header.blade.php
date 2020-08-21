@@ -9,19 +9,13 @@
         <div class="header-right collapse navbar-collapse col-xl-8 justify-content-xl-end justify-content-md-center" id="navbarNav">
             <ul class="menu navbar-nav mr-xl-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">home</a>
+                    <a class="nav-link" href="{{ Route('home') }}">home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">all courses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">list lesson</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">lesson detail</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-toggle="modal" data-target="#signModal">login/register</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signModal">login/register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">profile</a>
