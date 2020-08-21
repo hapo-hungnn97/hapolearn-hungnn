@@ -43,12 +43,6 @@
             </div>
         </div>   
     </div>
-    <input type="hidden" name="error" value="@if($errors->all()) 1 @else 2 @endif" class="input-error">
-    @error('name')
-        <span role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
     <div class="color-strip"></div>
     <div class="block-courses container">
         <div class="row">
