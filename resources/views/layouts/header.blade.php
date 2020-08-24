@@ -12,7 +12,7 @@
                     <a class="nav-link" href="{{ Route('home') }}">home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">all courses</a>
+                    <a class="nav-link" href="{{ Route('course') }}">all courses</a>
                 </li>
                 @if(Auth::check())
                 <li class="nav-item">
