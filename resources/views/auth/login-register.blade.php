@@ -13,21 +13,22 @@
             <div class="modal-body px-4 tab-pane" id="login">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
+                    <input type="hidden" name="error-login" class="input-error-login" @if( $errors->has('name') || $errors->has('password') ) value="error" @endif>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Username:</label>
-                        <input type="email" class="form-control form-input" id="recipient-name" name="email" value="{{ old('email') }}">
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                        <input type="text" class="form-control form-input" id="recipient-name" name="name" value="{{ old('name') }}">
+                        @error('name')
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
                             </span>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Password:</label>
-                        <input type="text" class="form-control form-input" id="recipient-name" name="password">
+                        <input type="password" class="form-control form-input" id="recipient-name" name="password">
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
                             </span>
                         @enderror
                     </div>
@@ -54,22 +55,39 @@
                 </div>
             </div>
             <div class="modal-body px-4 tab-pane d-none" id="register">
-                <form>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <input type="hidden" name="error-register"  class="input-error-register" @if( $errors->has('name_register') || $errors->has('email_register') ||  $errors->has('password_register')) value="error" @endif>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Username:</label>
-                        <input type="text" class="form-control form-input" id="recipient-name">
+                        <input type="text" class="form-control form-input" id="recipient-name" name="name_register" value="{{ old('name_register') }}">
+                        @error('name_register')
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Email:</label>
-                        <input type="text" class="form-control form-input" id="recipient-name">
+                        <input type="email" class="form-control form-input" id="recipient-name" name="email_register" value="{{ old('email_register') }}">
+                        @error('email_register')
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Password:</label>
-                        <input type="text" class="form-control form-input" id="recipient-name">
+                        <input type="password" class="form-control form-input" id="recipient-name" name="password_register">
+                        @error('password_register')
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Repeat Password:</label>
-                        <input type="text" class="form-control form-input" id="recipient-name">
+                        <input type="password" class="form-control form-input" id="recipient-name" name="password_confirmation">
                     </div>
                     <div class="text-center mt-5 pb-5">
                         <button class="btn btn-register">REGISTER</button>

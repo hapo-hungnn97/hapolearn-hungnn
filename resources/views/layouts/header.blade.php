@@ -14,12 +14,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">all courses</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signModal">login/register</a>
-                </li>
+                @if(Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="#">profile</a>
                 </li>
+                <li class="nav-item logout">
+                    <a class="nav-link" href="#">
+                        <form action="{{ route('logout') }}" method="post" class="form-logout">
+                            @csrf
+                            <input type="submit" class="d-none">logout
+                        </form>
+                    </a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signModal">login/register</a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>

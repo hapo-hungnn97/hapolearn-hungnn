@@ -47,4 +47,18 @@ $(document).ready(function () {
     });
 
     $('[data-toggle="tooltip"]').tooltip();
+
+    $('.logout').click(function () {
+        $('.form-logout').submit();
+    });
+
+    var errorLogin = $('.input-error-login').val();
+    var errorRegister = $('.input-error-register').val();
+    if (errorLogin === 'error') {
+        $('#signModal').modal('show');
+    }
+    if (errorRegister === 'error') {
+        $('#signModal').modal('show');
+        $('.modal-title-register').trigger("click");
+    }
 });
