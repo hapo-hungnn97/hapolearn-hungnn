@@ -18,8 +18,8 @@
                         <label for="recipient-name" class="form-label">Username:</label>
                         <input type="text" class="form-control form-input" id="recipient-name" name="name" value="{{ old('name') }}">
                         @error('name')
-                            <span role="alert">
-                                <strong>{{ $message }}</strong>
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
                             </span>
                         @enderror
                     </div>
@@ -27,8 +27,8 @@
                         <label for="recipient-name" class="form-label">Password:</label>
                         <input type="password" class="form-control form-input" id="recipient-name" name="password">
                         @error('password')
-                            <span role="alert">
-                                <strong>{{ $message }}</strong>
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
                             </span>
                         @enderror
                     </div>
@@ -62,8 +62,8 @@
                         <label for="recipient-name" class="form-label">Username:</label>
                         <input type="text" class="form-control form-input" id="recipient-name" name="name_register" value="{{ old('name_register') }}">
                         @error('name_register')
-                            <span role="alert">
-                                <strong>{{ $message }}</strong>
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
                             </span>
                         @enderror
                     </div>
@@ -71,8 +71,8 @@
                         <label for="recipient-name" class="form-label">Email:</label>
                         <input type="email" class="form-control form-input" id="recipient-name" name="email_register" value="{{ old('email_register') }}">
                         @error('email_register')
-                            <span role="alert">
-                                <strong>{{ $message }}</strong>
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
                             </span>
                         @enderror
                     </div>
@@ -80,8 +80,8 @@
                         <label for="recipient-name" class="form-label">Password:</label>
                         <input type="password" class="form-control form-input" id="recipient-name" name="password_register">
                         @error('password_register')
-                            <span role="alert">
-                                <strong>{{ $message }}</strong>
+                            <span role="alert" class="text-danger">
+                                <error>{{ $message }}</error>
                             </span>
                         @enderror
                     </div>

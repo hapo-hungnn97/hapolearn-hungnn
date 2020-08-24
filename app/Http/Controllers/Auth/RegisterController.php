@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use App\Http\Requests\RegisterUserRequest;
 
 class RegisterController extends Controller
 {
@@ -26,10 +27,8 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    public function register(Request $request)
+    public function register(RegisterUserRequest $request)
     {
-        $this->validator($request->all())->validate();
-
         event(new Registered($user = $this->create($request->all())));
 
         if ($response = $this->registered($request, $user)) {
@@ -54,21 +53,6 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name_register' => ['required', 'string', 'max:255'],
-            'email_register' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password_register' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
     }
 
     /**
