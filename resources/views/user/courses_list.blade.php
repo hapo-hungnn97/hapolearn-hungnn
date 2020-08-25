@@ -4,8 +4,9 @@
 <div class="courses-list container">
     <div class="courses-search mt-md-5 d-flex flex-row">
         <a href="" class="btn btn-filter"><i class="fas fa-sliders-h"></i> Filter</a>
-        <form action="">
-            <input type="text" class="form-control width-search ml-md-3 ml-2" placeholder="Search...">
+        <form action="{{ Route('course.search') }}" method="POST">
+            @csrf
+            <input type="text" class="form-control width-search ml-md-3 ml-2" placeholder="Search..." name="search">
         </form>
         <i class="fas fa-search position-relative feedback"></i>
     </div>
@@ -46,12 +47,8 @@
             </div>
         </div>
         @endforeach
-        <div class="pagination mt-md-5 mt-4">
-            <a href="" class="btn btn-pagi"><i class="fas fa-long-arrow-alt-left"></i></a>
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="" class="btn btn-pagi"><i class="fas fa-long-arrow-alt-right"></i></a>
+        <div class="pagination col-12 mt-5 d-flex justify-content-end">
+            {{ $courses->links('layouts.paginate') }}
         </div>
     </div>
 </div>

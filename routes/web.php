@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/courses', 'CourseController@index')->name('course');
+Route::post('search-course', 'CourseController@searchCourse')->name('course.search');
