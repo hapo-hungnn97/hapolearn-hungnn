@@ -5,13 +5,20 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,
+        SoftDeletes;
 
-    const ROLE_USER = 1;
-    const ROLE_TEACHER = 2;
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
+
+    const ROLE = [
+        'user' => 1,
+        'teacher' => 2,
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -39,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getRoleLabelAttribute()
+    {
+        if($this->role == self::ROLE['teacher']) {
+            return 'Teacher';
+        }
+        return 'User';
+    }
 }
