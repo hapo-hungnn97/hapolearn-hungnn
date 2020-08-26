@@ -20,13 +20,18 @@ class User extends Authenticatable
         'teacher' => 2,
     ];
 
+    const ROLE_LABEL = [
+        'user' => 'User',
+        'teacher' => 'Teacher',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'gender', 'phone_number', 'address', 'avatar', 'isTeacher'
+        'name', 'email', 'password', 'gender', 'phone_number', 'address', 'avatar', 'role'
     ];
 
     /**
@@ -47,11 +52,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getIsTeacherAttribute()
+    {
+        return $this->role == self::ROLE['teacher'];
+    }
+
     public function getRoleLabelAttribute()
     {
-        if($this->role == self::ROLE['teacher']) {
-            return 'Teacher';
-        }
-        return 'User';
+        return self::ROLE_LABEL[array_flip(self::ROLE)[$this->role]];
     }
 }

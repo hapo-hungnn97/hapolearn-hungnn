@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font/font-awesome/css/all.min.css') }}">
 </head>
@@ -128,6 +126,8 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </div>
 </body>
 </html>

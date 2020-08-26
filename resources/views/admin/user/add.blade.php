@@ -2,10 +2,10 @@
 @section('title', 'add user')
 @section('contents')
 <h2 class="mt-5">Add Student</h2>
-<form action="{{ Route('admin.users.store') }}" method="post" enctype="multipart/form-data" class="container">
-    <div class="row">
+<form action="{{ Route('admin.users.store') }}" method="post" enctype="multipart/form-data">
+    <div class="add-user">
         @csrf
-        <table class="table w-50 mt-4 col-7">
+        <table class="table w-50 mt-4">
             <tr>
                 <th>Name</th>
                 <td>
@@ -71,7 +71,7 @@
             <tr>
                 <th>Avatar</th>
                 <td>
-                    <input type="file" class="form-control-file border" name="avatar" onchange="encodeImageFileAsURL(this)">
+                    <input type="file" class="form-control-file border" name="avatar" onchange="encodeAddImageFileAsURL(this)">
                     @if($errors->has('avatar'))
                         <br>
                         <small class="text-danger">{{ $errors->first('avatar') }}</small>
@@ -79,23 +79,11 @@
                 </td>
             </tr>
         </table>
-        <div class="d-flex align-items-center justify-content-around col-5 d-flex flex-column">
-            <img id="preview" src=""  width="200px">
-            <div>
-                <a href="{{ Route('admin.users.index') }}" class="btn btn-info">Return</a>
-                <button class="btn btn-success">Submit</button>
-            </div>
-        </div>
+        <span>
+            <a href="{{ Route('admin.users.index') }}" class="btn btn-info">Return</a>
+            <button class="btn btn-success">Submit</button>
+        </span>
     </div>
 </form>
 @endsection
-<script>
-  function encodeImageFileAsURL(element) {
-    var file = element.files[0];
-    var reader = new FileReader();
-    reader.onloadend = function() {
-      $('#preview').attr('src', reader.result);
-    }
-    reader.readAsDataURL(file);
-  }
-</script>
+
