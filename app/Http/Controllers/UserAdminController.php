@@ -51,7 +51,7 @@ class UserAdminController extends Controller
             'phone_number' => $request->phone_number,
             'avatar' => $avatar,
             'gender' => $request->gender,
-            'isTeacher' => $request->role,
+            'role' => $request->role,
             'password' => bcrypt('123456789'),
         ]);
 
