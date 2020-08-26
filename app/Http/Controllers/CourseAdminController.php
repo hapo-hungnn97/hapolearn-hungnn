@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
 use App\Course;
 use Illuminate\Support\Facades\Storage;
+use Auth;
 
 class CourseAdminController extends Controller
 {
@@ -51,7 +52,7 @@ class CourseAdminController extends Controller
             'quizze' => $request->quizze,
             'price' => $request->price,
             'image' => $image,
-            'teacher_id' => 1,
+            'teacher_id' => Auth::user()->id,
         ]);
 
         return redirect()->route('admin.courses.index')->with('message', __('messages.success.store'));
