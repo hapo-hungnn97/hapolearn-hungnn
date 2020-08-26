@@ -96,7 +96,7 @@ class UserAdminController extends Controller
             $avatar = uniqid(). "_" .$request->avatar->getClientOriginalName();
             $request->file('avatar')->storeAs('public', $avatar);
             $image = User::find($id)->avatar;
-            Storage::delete('public/'.$image);    
+            Storage::delete('public/'.$image);
             $data['avatar'] = $avatar;
         }
 
