@@ -93,8 +93,8 @@ class CourseAdminController extends Controller
         if ($request->hasFile('image')) {
             $image = uniqid() . "_" . $request->image->getClientOriginalName();
             $request->file('image')->storeAs('public', $image);
-            $Ima = Course::find($id)->$image;
-            Storage::delete('public/' . $Ima);
+            $imageDelete = Course::find($id)->$image;
+            Storage::delete('public/' . $imageDelete);
             $data['image'] = $image;
         }
 
