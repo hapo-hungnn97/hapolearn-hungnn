@@ -5,13 +5,32 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,
+        SoftDeletes;
 
-    const ROLE_USER = 1;
-    const ROLE_TEACHER = 2;
+    const GENDER = [
+        'male' => 1,
+        'female' => 2,
+    ];
+
+    const GENDER_LABEL = [
+        'male' => 'Male',
+        'female' => 'Female',
+    ];
+
+    const ROLE = [
+        'user' => 1,
+        'teacher' => 2,
+    ];
+
+    const ROLE_LABEL = [
+        'user' => 'User',
+        'teacher' => 'Teacher',
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +38,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'gender', 'phone_number', 'address', 'avatar', 'isTeacher'
+        'name', 'email', 'password', 'gender', 'phone_number', 'address', 'avatar', 'role'
     ];
 
     /**
@@ -39,4 +58,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getGenderLabelAttribute()
+    {
+        return self::GENDER_LABEL[array_flip(self::GENDER)[$this->gender]];
+    }
+
+    public function getIsTeacherAttribute()
+    {
+        return $this->role == self::ROLE['teacher'];
+    }
+
+    public function getRoleLabelAttribute()
+    {
+        return self::ROLE_LABEL[array_flip(self::ROLE)[$this->role]];
+    }
 }
