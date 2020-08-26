@@ -16,7 +16,7 @@ class UserAdminController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(config('variable.paginate'));
         return view('admin.user.index', compact('users'));
     }
 
@@ -40,7 +40,7 @@ class UserAdminController extends Controller
     {
         $avatar = null;
         if ($request->hasFile('avatar')) {
-            $avatar = uniqid(). "_" .$request->avatar->getClientOriginalName();
+            $avatar = uniqid() . "_" . $request->avatar->getClientOriginalName();
             $request->file('avatar')->storeAs('public', $avatar);
         }
 
@@ -93,10 +93,10 @@ class UserAdminController extends Controller
         $data = $request->all();
         $data['isTeacher'] = $request->role;
         if ($request->hasFile('avatar')) {
-            $avatar = uniqid(). "_" .$request->avatar->getClientOriginalName();
+            $avatar = uniqid() . "_" . $request->avatar->getClientOriginalName();
             $request->file('avatar')->storeAs('public', $avatar);
             $image = User::find($id)->avatar;
-            Storage::delete('public/'.$image);
+            Storage::delete('public/'. $image);
             $data['avatar'] = $avatar;
         }
 

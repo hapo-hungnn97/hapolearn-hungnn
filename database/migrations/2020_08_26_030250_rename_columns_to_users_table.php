@@ -14,8 +14,7 @@ class RenameColumnsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('isTeacher');
-            $table->tinyInteger('role')->comment("1-user 2-teacher")->after('avatar')->default(1);
+            $table->renameColumn('isTeacher', 'role')->change();
         });
     }
 
@@ -27,8 +26,7 @@ class RenameColumnsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
-            $table->tinyInteger('isTeacher')->comment("1-user 2-teacher")->after('avatar');
+            $table->renameColumn('role', 'isTeacher')->change();
         });
     }
 }
