@@ -91,7 +91,7 @@ class UserAdminController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $data['isTeacher'] = $request->role;
+        $data['role'] = $request->role;
         if ($request->hasFile('avatar')) {
             $avatar = uniqid() . "_" . $request->avatar->getClientOriginalName();
             $request->file('avatar')->storeAs('public', $avatar);

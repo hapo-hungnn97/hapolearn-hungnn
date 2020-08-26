@@ -99,6 +99,29 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-newspaper-o"></i>
+                            <p>
+                                Quản lí Khóa học
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ Route('admin.courses.index') }}" class="nav-link active">
+                                    <i class="fa fa-circle nav-icon"></i>
+                                    <p>Danh sách khóa học</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ Route('admin.courses.create') }}" class="nav-link">
+                                    <i class="fa fa-circle nav-icon"></i>
+                                    <p>Thêm khóa học</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

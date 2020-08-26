@@ -24,4 +24,5 @@ Route::post('search-course', 'CourseController@searchCourse')->name('course.sear
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', 'AdminController@index')->name('index');
     Route::resource('users', 'UserAdminController');
+    Route::resource('courses', 'CourseAdminController');
 });
