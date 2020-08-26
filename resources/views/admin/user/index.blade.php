@@ -28,10 +28,10 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>
-                    <img src="{{ ($user->avatar == null) ? '' : asset('storage/'.$user->avatar) }}" alt="" class="rounded-circle" width="35px">
+                    <img src="{{ ($user->avatar == null) ? '' : asset('storage/' . $user->avatar) }}" alt="" class="rounded-circle" width="35px">
                 </td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->gender == App\User::GENDER_MALE ? 'Male' : 'Female' }}</td>
+                <td>{{ $user->gender_label }}</td>
                 <td>{{ $user->address }}</td>
                 <td>{{ $user->phone_number }}</td>
                 <td>{{ $user->role_label }}</td>

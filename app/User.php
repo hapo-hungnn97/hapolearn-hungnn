@@ -12,8 +12,15 @@ class User extends Authenticatable
     use Notifiable,
         SoftDeletes;
 
-    const GENDER_MALE = 1;
-    const GENDER_FEMALE = 2;
+    const GENDER = [
+        'male' => 1,
+        'female' => 2,
+    ];
+
+    const GENDER_LABEL = [
+        'male' => 'Male',
+        'female' => 'Female',
+    ];
 
     const ROLE = [
         'user' => 1,
@@ -51,6 +58,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getGenderLabelAttribute()
+    {
+        return self::GENDER_LABEL[array_flip(self::GENDER)[$this->gender]];
+    }
 
     public function getIsTeacherAttribute()
     {
