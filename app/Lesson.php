@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Coures;
 
 class Lesson extends Model
 {
@@ -15,6 +16,6 @@ class Lesson extends Model
 
     public function course()
     {
-        return $this->belongsTo('App\Course');
+        return $this->belongsTo(ourse::class);
     }
 }

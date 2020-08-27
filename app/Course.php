@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Lesson;
 
 class Course extends Model
 {
@@ -15,6 +16,6 @@ class Course extends Model
 
     public function lessons()
     {
-        return $this->hasMany('App\Lesson');
+        return $this->hasMany(Lesson::class);
     }
 }
