@@ -25,4 +25,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', 'AdminController@index')->name('index');
     Route::resource('users', 'UserAdminController');
     Route::resource('courses', 'CourseAdminController');
+    Route::get('/list', 'LessonAdminController@showListCourse')->name('list.index');
+
+    Route::group(['prefix' => 'lesson', 'as' => 'lesson.'], function () {
+        Route::get('/{course}/index', 'LessonAdminController@index')->name('index');
+        Route::get('/{course}/create', 'LessonAdminController@create')->name('create');
+        Route::post('/{course}', 'LessonAdminController@store')->name('store');
+        Route::get('/{course}/{lesson}/edit', 'LessonAdminController@edit')->name('edit');
+        Route::put('/{course}/{lesson}', 'LessonAdminController@update')->name('update');
+        Route::delete('/{course}/{lesson}', 'LessonAdminController@destroy')->name('destroy');
+    });
 });

@@ -122,6 +122,29 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-newspaper-o"></i>
+                            <p>
+                                Quản lí bài học
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ Route('admin.list.index') }}" class="nav-link active">
+                                    <i class="fa fa-circle nav-icon"></i>
+                                    <p>Danh sách bài học</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fa fa-circle nav-icon"></i>
+                                    <p>Thêm bài học</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
