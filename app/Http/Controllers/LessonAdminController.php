@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\LessonRequest;
-use App\Course;
-use App\Lesson;
+use App\Models\Course;
+use App\Models\Lesson;
 
 class LessonAdminController extends Controller
 {
