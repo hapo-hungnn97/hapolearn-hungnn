@@ -25,7 +25,7 @@ class LessonAdminController extends Controller
         $course = Course::findOrFail($id);
         $courseName = $course->name;
         $lessons = $course->lessons()->paginate(config('variable.paginate'));
-        return view('admin.lesson.index', compact('lessons','courseName','id'));
+        return view('admin.lesson.index', compact('lessons', 'courseName', 'id'));
     }
 
     /**
