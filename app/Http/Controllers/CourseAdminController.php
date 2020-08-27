@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
-use App\Course;
+use App\Models\Course;
 use Illuminate\Support\Facades\Storage;
 use Auth;
 
