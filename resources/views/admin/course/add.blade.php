@@ -18,7 +18,7 @@
             <tr>
                 <th>Description</th>
                 <td>
-                    <textarea class="form-control" rows="4" name="description"></textarea>
+                    <textarea class="form-control" rows="4" name="description">{{ old('description') }}</textarea>
                     @if($errors->has('description'))
                         <small class="text-danger">{{ $errors->first('description') }}</small>
                     @endif

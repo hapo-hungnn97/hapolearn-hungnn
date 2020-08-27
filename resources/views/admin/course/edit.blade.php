@@ -1,7 +1,7 @@
 @extends('admin.admin')
 @section('title', 'edit course')
 @section('contents')
-<h2 class="mt-5">Edit Student</h2>
+<h2 class="mt-5">Edit Course</h2>
 <form action="{{ Route('admin.courses.update', $course->id) }}" method="post" enctype="multipart/form-data">
     <div class="edit-course">
         @method('PUT')
