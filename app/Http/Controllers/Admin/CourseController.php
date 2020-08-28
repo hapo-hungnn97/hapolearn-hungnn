@@ -63,7 +63,7 @@ class CourseController extends Controller
 
             $courseId = Course::where('name', $request->name)->first()->id;
             $tags = $request->tagId;
-            if(!empty($tags)){
+            if (!empty($tags)) {
                 foreach ($tags as $key => $value) {
                     $data = [
                         'course_id' => $courseId,
@@ -78,7 +78,7 @@ class CourseController extends Controller
 
             return redirect()->route('admin.courses.index')->with('message', __('messages.success.store'));
         } catch (Exception $e) {
-            DB::rollBack();  
+            DB::rollBack(); 
             throw new Exception($e->getMessage());
 
             return redirect()->route('admin.courses.index')->with('message', __('messages.fail.store'));
