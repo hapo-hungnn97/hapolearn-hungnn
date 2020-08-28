@@ -78,7 +78,7 @@ class CourseController extends Controller
 
             return redirect()->route('admin.courses.index')->with('message', __('messages.success.store'));
         } catch (Exception $e) {
-            DB::rollBack(); 
+            DB::rollBack();
             throw new Exception($e->getMessage());
 
             return redirect()->route('admin.courses.index')->with('message', __('messages.fail.store'));
