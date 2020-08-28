@@ -52,6 +52,21 @@
                 </td>
             </tr>
             <tr>
+                <th>Tags</th>
+                <td class="container">
+                    <div class="row ml-2">
+                        @foreach($tags as $tag)
+                        <div class="col-6">
+                            <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" id="{{ $tag->id }}" name="tagId[]">
+                            <label class="form-check-label" for="{{ $tag->id }}">
+                                {{ $tag->name }}
+                            </label>
+                        </div>
+                        @endforeach
+                    </div>
+                </td>
+            </tr>
+            <tr>
                 <th>Image</th>
                 <td>
                     <input type="file" class="form-control-file border" name="image">
