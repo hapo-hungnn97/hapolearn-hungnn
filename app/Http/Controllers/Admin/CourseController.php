@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
 use App\Models\Course;
 use App\Models\Tag;
-use App\Models\Course_Tag;
+use App\Models\CourseTag;
 use Illuminate\Support\Facades\Storage;
 use Auth;
 use DB;
@@ -70,7 +70,7 @@ class CourseController extends Controller
                         'tag_id' => $request->tagId[$key],
                     ];
         
-                    Course_Tag::create($data);
+                    CourseTag::create($data);
                 }
             }
 
