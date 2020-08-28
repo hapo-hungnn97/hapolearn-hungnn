@@ -64,7 +64,7 @@ class CourseController extends Controller
             $courseId = Course::where('name', $request->name)->first()->id;
             $tags = $request->tagId;
             if (!empty($tags)) {
-                foreach ($tags as $key => $tag) {
+                foreach ($tags as $key) {
                     $data = [
                         'course_id' => $courseId,
                         'tag_id' => $request->tagId[$key],
