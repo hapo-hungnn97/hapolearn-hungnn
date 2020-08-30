@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
 use App\Models\Course;
 use Illuminate\Support\Facades\Storage;
 use Auth;
 
-class CourseAdminController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.

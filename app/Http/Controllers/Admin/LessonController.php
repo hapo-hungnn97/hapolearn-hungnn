@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LessonRequest;
 use App\Models\Course;
 use App\Models\Lesson;
 
-class LessonAdminController extends Controller
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
