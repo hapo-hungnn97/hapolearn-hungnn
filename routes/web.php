@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', 'Admin\AdminController@index')->name('index');
     Route::resource('users', 'Admin\UserController');
     Route::resource('courses', 'Admin\CourseController');
+    Route::resource('tags', 'Admin\TagController');
     Route::get('/list', 'Admin\LessonController@showListCourse')->name('list.index');
 
     Route::group(['prefix' => 'lesson', 'as' => 'lesson.'], function () {
