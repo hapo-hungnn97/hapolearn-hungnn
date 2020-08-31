@@ -24,4 +24,43 @@ class Course extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function getNumberLessonAttribute()
+    {
+        return $this->lessons()->count();
+    }
+
+    public function getTagCourseAttribute()
+    {
+        $tags = $this->tags;
+        if (count($tags) > 0) {
+            $tagName = '#' . $tags->first()->name;
+
+            for ($i = 1; $i < count($tags); $i++) {
+                $tagName .= ", " . '#' . $tags[$i]->name;
+            }
+        } else {
+            $tagName = "";
+        }
+
+        return $tagName;
+    }
+
+    public function getPriceCourseAttribute()
+    {
+        $price = $this->price;
+        if (empty($price)) {
+            $price = 'Free';
+        } else {
+            $price .= "$";
+        }
+
+        return $price;
+
+    }
+
+    public function getOtherCourseAttribute()
+    {
+        return $this->where('id', '!=', $this->id)->take(5)->get();
+    }
 }

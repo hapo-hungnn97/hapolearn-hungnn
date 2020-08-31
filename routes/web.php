@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/courses', 'CourseController@index')->name('course');
 Route::post('search-course', 'CourseController@searchCourse')->name('course.search');
+Route::get('/{course}/course-detail', 'CourseController@showCourseDetail')->name('course.detail');
+Route::post('/{course}/search-course', 'CourseController@searchCourseDetail')->name('course-detail.search');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', 'Admin\AdminController@index')->name('index');

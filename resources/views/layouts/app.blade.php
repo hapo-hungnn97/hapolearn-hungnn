@@ -7,7 +7,7 @@
     <title>@yield('title')</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css"/>
     <link href="/css/style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="font/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/font/font-awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/slick.css"/>
     <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
 </head>
