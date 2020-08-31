@@ -23,9 +23,10 @@ class CourseController extends Controller
     }
 
     public function showCourseDetail($id)
-    {   
+    {
         $courseDetail = Course::find($id);
-        $lessons = $courseDetail->lessons()->paginate(config('variable.paginate'));;
+        $lessons = $courseDetail->lessons()
+                            ->paginate(config('variable.paginate'));;
         return view('user.course_detail', compact('courseDetail', 'lessons'));
     }
 
