@@ -145,6 +145,29 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-tag"></i>
+                            <p>
+                                Quản lí Tag
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ Route('admin.tags.index') }}" class="nav-link active">
+                                    <i class="fa fa-circle nav-icon"></i>
+                                    <p>Danh sách Tag</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ Route('admin.tags.create') }}" class="nav-link">
+                                    <i class="fa fa-circle nav-icon"></i>
+                                    <p>Thêm Tag</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

@@ -1,0 +1,25 @@
+@extends('admin.admin')
+@section('title', 'add tag')
+@section('contents')
+<h2 class="mt-5">Add Tag</h2>
+<form action="{{ Route('admin.tags.store') }}" method="post">
+    <div class="add-course">
+        @csrf
+        <table class="table w-50 mt-4">
+            <tr>
+                <th>Name</th>
+                <td>
+                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                    @if($errors->has('name'))
+                        <small class="text-danger">{{ $errors->first('name') }}</small>
+                    @endif
+                </td>
+            </tr>
+        </table>
+        <span>
+            <a href="{{ Route('admin.tags.index') }}" class="btn btn-info">Return</a>
+            <button class="btn btn-success">Submit</button>
+        </span>
+    </div>
+</form>
+@endsection

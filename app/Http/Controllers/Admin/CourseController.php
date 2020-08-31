@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
 use App\Models\Course;
+use App\Models\Tag;
+use App\Models\CourseTag;
 use Illuminate\Support\Facades\Storage;
 use Auth;
+use DB;
 
 class CourseController extends Controller
 {
@@ -29,7 +32,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('admin.course.add');
+        $tags = Tag::all();
+        return view('admin.course.add', compact('tags'));
     }
 
     /**
@@ -45,18 +49,40 @@ class CourseController extends Controller
             $image = uniqid() . "_" . $request->image->getClientOriginalName();
             $request->file('image')->storeAs('public', $image);
         }
+        DB::beginTransaction();
+        try {
+            Course::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'times' => $request->times,
+                'quizze' => $request->quizze,
+                'price' => $request->price,
+                'image' => $image,
+                'teacher_id' => Auth::user()->id,
+            ]);
 
-        Course::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'times' => $request->times,
-            'quizze' => $request->quizze,
-            'price' => $request->price,
-            'image' => $image,
-            'teacher_id' => Auth::user()->id,
-        ]);
+            $courseId = Course::where('name', $request->name)->first()->id;
+            $tags = $request->tagId;
+            if (!empty($tags)) {
+                foreach ($tags as $key) {
+                    $data = [
+                        'course_id' => $courseId,
+                        'tag_id' => $request->tagId[$key],
+                    ];
+        
+                    CourseTag::create($data);
+                }
+            }
 
-        return redirect()->route('admin.courses.index')->with('message', __('messages.success.store'));
+            DB::commit();
+
+            return redirect()->route('admin.courses.index')->with('message', __('messages.success.store'));
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw new Exception($e->getMessage());
+
+            return redirect()->route('admin.courses.index')->with('message', __('messages.fail.store'));
+        }
     }
 
     /**
