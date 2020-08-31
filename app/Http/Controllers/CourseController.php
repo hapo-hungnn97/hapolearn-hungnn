@@ -16,9 +16,9 @@ class CourseController extends Controller
     public function searchCourse(Request $request)
     {
         $key = $request->search;
-        $courses = Course::where('name', 'like', '%'.$key.'%')
-                        ->orwhere('description', 'like', '%'.$key.'%')
-                        ->paginate(config('variable.paginate'));
+        $courses = Course::where('name', 'like', '%' . $key . '%')
+            ->orwhere('description', 'like', '%' . $key . '%')
+            ->paginate(config('variable.paginate'));
         return view('user.courses_list', compact('courses'));
     }
 
@@ -26,7 +26,7 @@ class CourseController extends Controller
     {
         $courseDetail = Course::find($id);
         $lessons = $courseDetail->lessons()
-                            ->paginate(config('variable.paginate'));
+            ->paginate(config('variable.course'));
         return view('user.course_detail', compact('courseDetail', 'lessons'));
     }
 
@@ -35,8 +35,8 @@ class CourseController extends Controller
         $key = $request->search;
         $courseDetail = Course::find($id);
         $lessons = $courseDetail->lessons()
-                            ->where('name', 'like', '%'.$key.'%')
-                            ->paginate(config('variable.paginate'));
+            ->where('name', 'like', '%' . $key . '%')
+            ->paginate(config('variable.course'));
         return view('user.course_detail', compact('courseDetail', 'lessons'));
     }
 }

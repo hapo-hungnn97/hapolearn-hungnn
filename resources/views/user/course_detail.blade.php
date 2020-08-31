@@ -52,7 +52,7 @@
                                     <br>
                                     @foreach($lessons as $key => $lesson)
                                     <div class="lesson-list d-flex justify-content-between">
-                                        {{ ++$key }} . {{$lesson->name}}
+                                        {{ ++$key }} . {{ $lesson->name }}
                                         <a href="" class="btn btn-learn">Learn</a>
                                     </div>
                                     @endforeach
@@ -87,7 +87,7 @@
                         <div class="other mt-3">
                             @foreach($courseDetail->other_course as $key => $course)
                             <div class="course-element pl-2">
-                                {{ ++$key }} . {{ $course->name }} 
+                                {{ ++$key }} . {{ $course->name }}
                             </div>
                             <hr>
                             @endforeach
