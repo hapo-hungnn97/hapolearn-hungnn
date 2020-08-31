@@ -26,7 +26,7 @@ class CourseController extends Controller
     {
         $courseDetail = Course::find($id);
         $lessons = $courseDetail->lessons()
-                            ->paginate(config('variable.paginate'));;
+                            ->paginate(config('variable.paginate'));
         return view('user.course_detail', compact('courseDetail', 'lessons'));
     }
 
@@ -34,7 +34,9 @@ class CourseController extends Controller
     {
         $key = $request->search;
         $courseDetail = Course::find($id);
-        $lessons = $courseDetail->lessons()->where('name', 'like', '%'.$key.'%')->paginate(config('variable.paginate'));
+        $lessons = $courseDetail->lessons()
+                            ->where('name', 'like', '%'.$key.'%')
+                            ->paginate(config('variable.paginate'));
         return view('user.course_detail', compact('courseDetail', 'lessons'));
     }
 }

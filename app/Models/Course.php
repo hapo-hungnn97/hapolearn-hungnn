@@ -56,7 +56,6 @@ class Course extends Model
         }
 
         return $price;
-
     }
 
     public function getOtherCourseAttribute()
