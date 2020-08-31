@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="left-course-content col-8 mt-4 pb-5">
                     <div class="container mt-3 course-content">
-                        <ul class="nav tab-head" style="border-bottom: 1px solid #DADADA">
+                        <ul class="nav tab-head">
                             <li class="nav-item mt-2">
                                 <a class="nav-link active" data-toggle="tab" href="#lesson">Lesson</a>
                             </li>

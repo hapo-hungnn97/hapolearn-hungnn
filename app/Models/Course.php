@@ -60,6 +60,6 @@ class Course extends Model
 
     public function getOtherCourseAttribute()
     {
-        return $this->where('id', '!=', $this->id)->take(5)->get();
+        return $this->where('id', '!=', $this->id)->take(config('variable.course'))->get();
     }
 }
