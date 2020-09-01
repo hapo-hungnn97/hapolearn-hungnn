@@ -779,6 +779,9 @@
 }
 
 .right-course {
+  display: flex;
+  align-items: stretch;
+  
   .decs-course {
     border: 1px solid #D1D1D1;
     box-sizing: border-box;
@@ -806,9 +809,51 @@
     background: #FFFFFF;
     border-radius: 10px;
 
-    li {
-      @include font_UTM(bold, 20px, #505353);
+    ul {
+      border-bottom: 1px solid #DADADA;
     }
+
+    li {
+      border-bottom: 2px solid $main_color;
+      @include font_UTM(bold, 23px, #505353);
+    }
+  }
+
+  .title-teacher {
+    @include font_UTM(bold, 25px, #505353);
+  }
+  
+  .title-name {
+    -webkit-text-stroke-width: 0.5px;
+    @include font_UTM(bold, 18px, #505353);
+  }
+  
+  .title-exp {
+    @include font_UTM(normal, 14px, #BDB9B9);
+  }
+  
+  .img-g {
+    padding: 6px 4px;
+    border-radius: 14px;
+    border: 1px solid #F44336;
+  }
+  
+  .img-f {
+    padding: 4px 8px;
+    border-radius: 14px;
+    border: 1px solid #1976D2;
+  }
+  
+  .img-in {
+    padding: 5px 5px;
+    border-radius: 14px;
+    border: 1px solid #FF9800;
+  }
+  
+  .desc-exp {
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    @include font_UTM(normal, 18px, #949292);
   }
 
   .btn-filter {

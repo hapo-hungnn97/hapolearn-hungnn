@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="left-course col-8 d-flex align-items-center justify-content-center mt-4">
                     <div class="course-banner">
-                        <img class="img-fluid img-course-banner" src="image/Rectangle 7.png" alt="">
+                        <img class="img-fluid img-course-banner" src="/image/Rectangle7.png" alt="">
                     </div>
                 </div>
                 <div class="right-course col-4 mt-4">
@@ -62,7 +62,26 @@
                                 </div>
                             </div>
                             <div id="teacher" class="container tab-pane fade"><br>
-
+                            <div class="title-teacher">Main Teacher</div>
+                                <div class="container-fluid mt-3">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <img src="image/Ellipse 32.png" alt="">
+                                        </div>
+                                        <div class="col-10 mt-2">
+                                            <div class="title-name mt-2">Luu Trung Nghia</div>
+                                            <div class="title-exp mt-1">Second Year Teacher</div>
+                                            <div class="mt-2">
+                                                <img class="img-g" src="image/Groupa.png" alt="">
+                                                <img class="img-f ml-2" src="image/Vector.png" alt="">
+                                                <img class="img-in ml-2" src="image/Group 84.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="desc-exp mt-3">
+                                        Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Sed quis rutrum tellus, sit amet viverra felis. Cras sagittis sem sit amet urna feugiat rutrum. Nam nulla ipsum, venenatis malesuada felis quis, ultricies convallis neque. Pellentesque tristique
+                                    </div>
+                                </div>
                             </div>
                             <div id="reviews" class="container tab-pane fade"><br>
 
