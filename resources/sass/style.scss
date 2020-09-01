@@ -622,6 +622,16 @@
   }
 }
 
+%active {
+  text-decoration: none;
+  border: 1px solid $main_color;
+  padding: 7px 18px;
+  border-radius: 3px;
+  margin-left: 10px;
+  background-color: $main_color;
+  color: #FFFFFF;
+}
+
 .courses-list {
   .courses-search {
     a {
@@ -714,14 +724,215 @@
     }
 
     .page-active {
+      @extend %active;
+    }
+  }
+}
+
+.detail-courses {
+  background: #F2F2F2;
+
+  .pagination {
+    .btn-pagi {
+      border: 1px solid #B2D235;
+      color: #B2D235;
+      font-size: 30px;
+      padding: 0 18px;
+    }
+
+    a {
       text-decoration: none;
       border: 1px solid #B2D235;
       color: #B2D235;
       padding: 7px 18px;
       border-radius: 3px;
       margin-left: 10px;
-      background-color: #B2D235;
-      color: #FFFFFF;
+      @include font_Open(bold, 18px);
+      &:hover {
+        background-color: #B2D235;
+        color: #FFFFFF;
+      }
+    }
+
+    .page-active {
+      @extend %active;
+    }
+  }
+}
+
+.head-detail {
+  background: #E9E7E7;
+  height: 40px;
+
+  span {
+    padding: 20px;
+    @include font_UTM(normal, 16px, #505353);
+  }
+}
+
+.left-course {
+  .img-course-banner {
+    padding: 100px 230px;
+    background: #3F6185;
+    border-radius: 10px;
+  }
+}
+
+.right-course {
+  display: flex;
+  align-items: stretch;
+  
+  .decs-course {
+    border: 1px solid #D1D1D1;
+    box-sizing: border-box;
+    background: #FFFFFF;
+
+    .title {
+      @include font_UTM(bold, 24px, #505353);
+    }
+
+    .under {
+      width: 90%;
+      margin: 8px 0;
+    }
+
+    .content {
+      line-height: 26px;
+      letter-spacing: -0.02em;
+      @include font_UTM(bold, 17px, #949292);
+    }
+  }
+}
+
+.left-course-content {
+  .course-content {
+    background: #FFFFFF;
+    border-radius: 10px;
+
+    ul {
+      border-bottom: 1px solid #DADADA;
+    }
+
+    li {
+      border-bottom: 2px solid $main_color;
+      @include font_UTM(bold, 23px, #505353);
+    }
+  }
+
+  .title-teacher {
+    @include font_UTM(bold, 25px, #505353);
+  }
+  
+  .title-name {
+    -webkit-text-stroke-width: 0.5px;
+    @include font_UTM(bold, 18px, #505353);
+  }
+  
+  .title-exp {
+    @include font_UTM(normal, 14px, #BDB9B9);
+  }
+  
+  .img-g {
+    padding: 6px 4px;
+    border-radius: 14px;
+    border: 1px solid #F44336;
+  }
+  
+  .img-f {
+    padding: 4px 8px;
+    border-radius: 14px;
+    border: 1px solid #1976D2;
+  }
+  
+  .img-in {
+    padding: 5px 5px;
+    border-radius: 14px;
+    border: 1px solid #FF9800;
+  }
+  
+  .desc-exp {
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    @include font_UTM(normal, 18px, #949292);
+  }
+
+  .btn-filter {
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+  }
+
+  .width-search {
+    width: 110%;
+  }
+
+  .search-course {
+    top: 10px;
+    right: -12px;
+  }
+
+  .lesson-list {
+    border-top: 1px solid #E2E0E0;
+    padding: 8px;
+    @include font_UTM(bold, 17px, #505353);
+  }
+
+  .btn-learn {
+    background: #B2D235;
+    box-shadow: inset 0px 1.5px 2px #6F8710;
+    border-radius: 22px;
+    @include font_UTM(bold, 15px, #FFFFFF);
+  }
+}
+
+.right-course-content {
+  .statistic-course {
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    box-sizing: border-box;
+
+    .element {
+      padding: 20px 0px;
+      @include font_UTM(bold, 25px, #BDB9B9);
+    }
+
+    hr {
+      margin-left: 15px;
+      width: 90%;
+    }
+
+    i {
+      font-size: 32px;
+      color: #BDB9B9;
+    }
+  }
+
+  .other-courses {
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    box-sizing: border-box;
+
+    .title {
+      background: #B2D235;
+      border: 1px solid #DEDEDE;
+      box-sizing: border-box;
+      padding: 10px 0;
+      @include font_UTM(bold, 25px, #FFFFFF);
+    }
+
+    hr {
+      margin-left: 15px;
+      width: 90%;
+    }
+
+    .course-element {
+      @include font_UTM(bold, 16px, #505353);
+    }
+
+    .btn-view {
+      background: #B2D235;
+      box-shadow: inset 0px 1.5px 2px #6F8710;
+      border-radius: 22px;
+       @include font_UTM(bold, 18px, #FFFFFF);
     }
   }
 }
