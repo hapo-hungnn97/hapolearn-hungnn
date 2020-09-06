@@ -54,7 +54,8 @@
                 <div class="foot text-center">
                     <div class="txt-content text-center pt-4">{{ $course->name }}</div>
                     <div class="txt-des text-center mt-2">{{ $course->description }}</div>
-                    <a href="" class="btn">Take This Course</a>
+                    <a href="{{ Route('course.detail', $course->id) }}" class="btn btn-take-course" {{ Auth::user() ? '' : 'data-toggle=modal data-target=#signModal' }}>Take This Course</a>
+                    <input type="hidden"  value="{{ $course->id }}">
                 </div>
             </div>
             @endforeach
@@ -74,7 +75,8 @@
                 <div class="foot text-center">
                     <div class="txt-content text-center pt-4">{{ $otherCourse->name }}</div>
                     <div class="txt-des text-center mt-2">{{ $otherCourse->description }}</div>
-                    <a href="" class="btn">Take This Course</a>
+                    <a href="{{ Route('course.detail', $otherCourse->id) }}" class="btn btn-take-course" {{ Auth::user() ? '' : 'data-toggle=modal data-target=#signModal' }}>Take This Course</a>
+                    <input type="hidden"  value="{{ $otherCourse->id }}">
                 </div>
             </div>
             @endforeach
