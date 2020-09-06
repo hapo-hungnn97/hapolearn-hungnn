@@ -17,7 +17,7 @@ class AdminAuth
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == User::ROLE['teacher']){
+        if (Auth::check() && Auth::user()->role == User::ROLE['teacher']) {
             return $next($request);
         } else {
             return redirect()->route('home');

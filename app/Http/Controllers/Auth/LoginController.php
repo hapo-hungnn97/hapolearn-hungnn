@@ -59,18 +59,7 @@ class LoginController extends Controller
 
         return $this->sendFailedLoginResponse($request);
     }
-
-    // protected function authenticated(Request $request, $user)
-    // {
-    //     if ($user->role == User::ROLE['teacher']) {
-    //         return redirect()->route('admin.index');
-    //     }
-
-    //     if ($user->role == User::ROLE['user']) {
-    //         return redirect()->route('home');
-    //     }
-    // }
-
+    
     /**
      * Create a new controller instance.
      *
