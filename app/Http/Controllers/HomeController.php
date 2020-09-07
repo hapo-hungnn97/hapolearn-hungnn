@@ -21,4 +21,9 @@ class HomeController extends Controller
         $user = User::find($request->user_id);
         $user->courses()->attach($request->course_id);
     }
+
+    public function showProfile()
+    {
+        return view('user.profile');
+    }
 }

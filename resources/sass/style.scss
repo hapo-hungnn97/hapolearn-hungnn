@@ -945,4 +945,66 @@
   }
 }
 
+.profile {
+  background: #E5E5E5;
+
+  .profile-left {
+    .avatar {
+      margin-top: 50px;
+    }
+
+    .title-name {
+      @include font_UTM(bold, 25px, #505353);
+    }
+
+    .title-mail {
+      border-bottom: 3px solid #DCDCDC;
+      @include font_UTM(normal, 18px, #505353);
+    }
+
+    .title {
+      width: 80%;
+      margin: 20px 0;
+      border-bottom: 3px solid #DCDCDC;
+      @include font_UTM(normal, 18px, #505353);
+    }
+
+    .title-decs {
+      width: 220px;
+      line-height: 26px;
+      letter-spacing: -0.02em;
+      @include font_UTM(normal, 16px, #787B7B);
+    }
+  }
+
+  .profile-right {
+    .my-course {
+      margin-top: 120px;
+      border-bottom: 2px solid $main_color;
+
+      span {
+        @include font_UTM(bold, 38px, #505353);
+      }
+    }
+
+    .img-cour {
+      margin: 0 10px;
+    }
+
+    .add-course {
+      width: 65px;
+      height: 65px;
+      border: 1px solid $main_color;
+      border-radius: 50%;
+      font-size: 25px;
+      color: $main_color;
+    }
+
+    .edit-profile {
+      margin-top: 50px;
+      @extend .my-course;
+    }
+  }
+}
+
 @import 'responsive';
