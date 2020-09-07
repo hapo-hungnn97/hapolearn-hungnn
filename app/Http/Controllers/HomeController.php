@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
-use App\Models\CourseUser;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -18,6 +18,7 @@ class HomeController extends Controller
 
     public function createUserCourse(Request $request)
     {
-        CourseUser::create($request->all());
+        $user = User::find($request->user_id);
+        $user->courses()->attach($request->course_id);
     }
 }

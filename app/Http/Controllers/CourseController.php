@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
-use App\Models\CourseUser;
 use Auth;
 
 class CourseController extends Controller
@@ -29,10 +28,8 @@ class CourseController extends Controller
         $courseDetail = Course::find($id);
         $lessons = $courseDetail->lessons()
             ->paginate(config('variable.paginate'));
-        $checkCourse = CourseUser::where('user_id', Auth::user()->id)
-            ->where('course_id', $id)
-            ->first();
-        return view('user.course_detail', compact('courseDetail', 'lessons', 'id', 'checkCourse'));
+        
+        return view('user.course_detail', compact('courseDetail', 'lessons', 'id'));
     }
 
     public function searchCourseDetail(Request $request, $id)

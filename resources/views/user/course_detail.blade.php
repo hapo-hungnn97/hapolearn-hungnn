@@ -47,7 +47,7 @@
                                         <input type="text" class="form-control width-search ml-3" placeholder="Search..." name="search">
                                     </form>
                                     <i class="fas fa-search position-relative search-course"></i>
-                                    @if(empty($checkCourse))
+                                    @if(!($courseDetail->check_user))
                                     <a href="" class="btn btn-take">Take this course</a>
                                     @endif
                                     <input type="hidden" class="user-id"  value="{{ Auth::user()->id }}">
@@ -58,7 +58,7 @@
                                     @foreach($lessons as $key => $lesson)
                                     <div class="lesson-list d-flex justify-content-between">
                                         {{ ++$key }} . {{ $lesson->name }}
-                                        @if($checkCourse)
+                                        @if($courseDetail->check_user)
                                         <a href="" class="btn btn-learn">Learn</a>
                                         @endif
                                     </div>
