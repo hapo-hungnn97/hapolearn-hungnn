@@ -67,4 +67,23 @@ $(document).ready(function () {
             $(this).next().val()
         );
     });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $('.btn-take').click(function () {
+        $('.btn-take').addClass('d-none');
+
+        var userId = $('.user-id').val();
+        var courseId = $('.cour-id').val();
+        console.log(courseId, userId);
+        $.ajax({
+            type: "POST",
+            url: "/user-course",
+            data: { "user_id": userId, "course_id": courseId, },
+        });
+    })
 });

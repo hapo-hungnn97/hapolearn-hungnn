@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Lesson;
 use App\Models\Tag;
+use App\Models\User;
+use Auth;
 
 class Course extends Model
 {
@@ -15,6 +17,11 @@ class Course extends Model
         'name', 'description', 'image', 'times', 'price', 'quizze', 'teacher_id'
     ];
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
@@ -23,6 +30,15 @@ class Course extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function getCheckUserAttribute()
+    {
+        $check = $this->users()
+            ->wherePivot('user_id', Auth::user()->id)
+            ->wherePivot('course_id', $this->id)
+            ->exists();
+        return $check;
     }
 
     public function getNumberLessonAttribute()
