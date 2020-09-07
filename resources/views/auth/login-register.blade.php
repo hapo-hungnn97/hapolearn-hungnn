@@ -13,7 +13,7 @@
             <div class="modal-body px-4 tab-pane" id="login">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <input type="hidden" name="id" class="course_id">
+                    <input type="hidden" name="id" class="course-id">
                     <input type="hidden" name="error-login" class="input-error-login" @if( $errors->has('name') || $errors->has('password') ) value="error" @endif>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Username:</label>

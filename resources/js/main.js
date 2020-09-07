@@ -63,7 +63,7 @@ $(document).ready(function () {
     }
 
     $('.btn-take-course').click(function () {
-        $('.course_id').val(
+        $('.course-id').val(
             $(this).next().val()
         );
     });
