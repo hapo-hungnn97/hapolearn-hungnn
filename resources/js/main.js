@@ -61,4 +61,10 @@ $(document).ready(function () {
         $('#signModal').modal('show');
         $('.modal-title-register').trigger("click");
     }
+
+    $('.btn-take-course').click(function () {
+        $('.course-id').val(
+            $(this).next().val()
+        );
+    });
 });

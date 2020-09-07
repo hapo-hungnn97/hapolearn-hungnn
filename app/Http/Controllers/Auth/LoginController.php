@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -29,17 +30,36 @@ class LoginController extends Controller
      * @var string
      */
 
-    protected function authenticated(Request $request, $user)
+    public function login(Request $request)
     {
-        if ($user->role == User::ROLE['teacher']) {
-            return redirect()->route('admin.index');
+        $this->validateLogin($request);
+
+        if (method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
         }
 
-        if ($user->role == User::ROLE['user']) {
-            return redirect()->route('home');
+        if ($this->attemptLogin($request)) {
+            if (Auth::user()->role == User::ROLE['teacher']) {
+                return redirect()->route('admin.index');
+            }
+    
+            if (Auth::user()->role == User::ROLE['user']) {
+                if ($request->id) {
+                    return redirect()->route('course.detail', $request->id);
+                } else {
+                    return redirect()->route('home');
+                }
+            }
         }
+
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
     }
-
+    
     /**
      * Create a new controller instance.
      *
