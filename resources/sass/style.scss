@@ -870,6 +870,14 @@
     right: -12px;
   }
 
+  .btn-take {
+    background-color: $main_color;
+    box-shadow: inset 0px 1.5px 2px #6F8710;
+    border-radius: 22px;
+    margin-left: 205px;
+    @include font_UTM(bold, 18px, #FFFFFF);
+  }
+
   .lesson-list {
     border-top: 1px solid #E2E0E0;
     padding: 8px;
