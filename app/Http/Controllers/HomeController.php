@@ -44,13 +44,12 @@ class HomeController extends Controller
 
     public function updateAvatar(AvatarUpdateRequest $request)
     {
-        $userId = Auth::user()->id;
         if ($request->hasFile('avatar')) {
             $avatar = uniqid() . "_" . $request->avatar->getClientOriginalName();
             $request->file('avatar')->storeAs('public', $avatar);
-            $image = User::find($userId)->avatar;
+            $image = Auth::user()->avatar;
             Storage::delete('public/' . $image);
-            User::find($userId)->update(['avatar' => $avatar]);
+            Auth::user()->update(['avatar' => $avatar]);
         }
 
         return redirect()->route('profile');
