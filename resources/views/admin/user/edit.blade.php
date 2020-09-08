@@ -19,10 +19,7 @@
             <tr>
                 <th>Email</th>
                 <td>
-                    <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}">
-                    @if($errors->has('email'))
-                        <small class="text-danger">{{ $errors->first('email') }}</small>
-                    @endif
+                    <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}" disabled>
                 </td>
             </tr>
             <tr>

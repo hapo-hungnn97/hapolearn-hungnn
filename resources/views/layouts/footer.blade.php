@@ -1,4 +1,4 @@
-<div class="footer container-fluid d-flex flex-row align-items-center mt-xl-5 mt-md-4 mt-5">
+<div class="footer container-fluid d-flex flex-row align-items-center">
     <div class="row block-foot">
         <div class="menu col-md-4 col-12 order-md-2 d-flex flex-row justify-content-md-center justify-content-around">
             <ul class="d-flex flex-column">

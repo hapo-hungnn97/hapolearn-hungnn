@@ -16,7 +16,7 @@
                 </li>
                 @if(Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link" href="#">profile</a>
+                    <a class="nav-link" href="{{ Route('profile') }}">profile</a>
                 </li>
                 <li class="nav-item logout">
                     <a class="nav-link" href="#">
