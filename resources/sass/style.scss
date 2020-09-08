@@ -953,6 +953,30 @@
       margin-top: 50px;
     }
 
+    .btn-img {
+      position: absolute;
+      top: 252px;
+      left: 57%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      color: white;
+      font-size: 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      &:hover {
+        color: #505353;
+      }
+    }
+
+    .icon-upload {
+      color: #CCCCCC;
+      font-size: 40px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
     .title-name {
       @include font_UTM(bold, 25px, #505353);
     }
@@ -989,6 +1013,12 @@
 
     .img-cour {
       margin: 0 10px;
+      width: 65px;
+      height: 65px;
+    }
+
+    a {
+      text-decoration: none;
     }
 
     .add-course {
@@ -998,6 +1028,11 @@
       border-radius: 50%;
       font-size: 25px;
       color: $main_color;
+      &:hover {
+        cursor: pointer;
+        border: 2px solid $main_color;
+        font-size: 30px;
+      }
     }
 
     .edit-profile {

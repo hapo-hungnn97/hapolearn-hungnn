@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth.user'], function () {
     Route::post('/{course}/search-course', 'CourseController@searchCourseDetail')->name('course-detail.search');
     Route::post('/user-course', 'HomeController@createUserCourse')->name('user.courses');
     Route::get('/profile', 'HomeController@showProfile')->name('profile');
+    Route::put('/profile', 'HomeController@editProfile')->name('profile.update');
+    Route::put('/update-avatar', 'HomeController@updateAvatar')->name('avatar.update');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth.admin'], function () {

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\AvatarUpdateRequest;
 use App\Models\Course;
 use App\Models\User;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -24,6 +28,31 @@ class HomeController extends Controller
 
     public function showProfile()
     {
-        return view('user.profile');
+        $user = Auth::user();
+        $courses = $user->courses()->get();
+
+        return view('user.profile', compact('user', 'courses'));
+    }
+
+    public function editProfile(ProfileRequest $request)
+    {
+        $userId = Auth::user()->id;
+        User::find($userId)->update($request->all());
+
+        return redirect()->route('profile')->with('message', __('messages.success.update'));
+    }
+
+    public function updateAvatar(AvatarUpdateRequest $request)
+    {
+        $userId = Auth::user()->id;
+        if ($request->hasFile('avatar')) {
+            $avatar = uniqid(). "_" .$request->avatar->getClientOriginalName();
+            $request->file('avatar')->storeAs('public', $avatar);
+            $image = User::find($userId)->avatar;
+            Storage::delete('public/'.$image);
+            User::find($userId)->update(['avatar' => $avatar]);
+        }
+
+        return redirect()->route('profile');
     }
 }
