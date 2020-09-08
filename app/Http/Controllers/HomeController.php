@@ -46,10 +46,10 @@ class HomeController extends Controller
     {
         $userId = Auth::user()->id;
         if ($request->hasFile('avatar')) {
-            $avatar = uniqid(). "_" .$request->avatar->getClientOriginalName();
+            $avatar = uniqid() . "_" . $request->avatar->getClientOriginalName();
             $request->file('avatar')->storeAs('public', $avatar);
             $image = User::find($userId)->avatar;
-            Storage::delete('public/'.$image);
+            Storage::delete('public/' . $image);
             User::find($userId)->update(['avatar' => $avatar]);
         }
 

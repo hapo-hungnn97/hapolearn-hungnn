@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-3 profile-left d-flex justify-content-end">
                 <div>
-                    <img src="{{ asset('storage/'. $user->avatar) }}" class="img-fluid rounded-circle img-thumbnail avatar" alt="" width="250px">
+                    <img src="{{ asset('storage/' . $user->avatar) }}" class="img-fluid rounded-circle img-thumbnail avatar" alt="" width="250px">
                     <button class="btn btn-img" data-toggle="modal" data-target="#myAvatar"><i class="fas fa-camera"></i></button>
                     @if($errors->has('avatar'))
                         <div class="text-danger text-center">{{ $errors->first('avatar') }}</div>
@@ -66,7 +66,7 @@
                 <div class="d-flex justify-content-center mt-4">
                     @foreach($courses as $course)
                     <div class="">
-                        <img src="{{ asset('storage/'. $course->image) }}" alt="" class="img-fluid img-cour rounded-circle mx-3">
+                        <img src="{{ asset('storage/' . $course->image) }}" alt="" class="img-fluid img-cour rounded-circle mx-3">
                         <br>
                         <span>{{ $course->name }}</span>
                     </div>
