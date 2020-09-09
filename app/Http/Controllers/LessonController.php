@@ -12,9 +12,9 @@ class LessonController extends Controller
     {
         $course = Course::find($courseId);
         $lesson = $course->lessons()->find($lessonId);
-        if(!($course->getUserLesson($lessonId))) {
-            Auth::user()->courses()->attach($courseId, ['lesson_id' => $lessonId] );
-        } 
+        if (!($course->getUserLesson($lessonId))) {
+            Auth::user()->courses()->attach($courseId, ['lesson_id' => $lessonId]);
+        }
 
         return view('user.lesson', compact('course', 'lesson'));
     }
