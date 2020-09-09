@@ -1042,4 +1042,141 @@
   }
 }
 
+.lesson {
+  background: #F2F2F2;
+
+  .left-lesson {
+    .img-lesson-banner {
+      padding: 100px 230px;
+      background: #3F6185;
+      border-radius: 10px;
+    }
+  }
+
+  .right-lesson {
+    .statistic-lesson {
+      background: #FFFFFF;
+      border: 1px solid #D1D1D1;
+      box-sizing: border-box;
+
+      .element {
+        padding: 10px 0;
+        @include font_UTM(bold, 25px, #BDB9B9);
+      }
+
+      hr {
+        margin-left: 15px;
+        width: 90%;
+      }
+
+      i {
+        font-size: 32px;
+        color: #BDB9B9;
+      }
+
+      .btn-view {
+        background: #B2D235;
+        padding: 5px 30px; 
+        box-shadow: inset 0 1.5px 2px #6F8710;
+        border-radius: 22px;
+        @include font_UTM(bold, 18px, #FFFFFF);
+        &:hover {
+          cursor: pointer;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .left-lesson-content {
+    margin-top: -120px;
+    
+    .lesson-content {
+      background: #FFFFFF;
+      border-radius: 10px;
+
+      li {
+        @include font_UTM(bold, 20px, #505353);
+      }
+    }
+
+    .title {
+      @include font_UTM(bold, 25px, #505353);
+    }
+
+    .content {
+      @include font_UTM(normal, 18px, #949292);
+    }
+
+    .title-tag {
+      @include font_UTM(bold, 20px, #505353);
+    }
+
+    .tag {
+      background: #F2F2F2;
+      border: 1px solid #E4E4E4;
+      box-sizing: border-box;
+      border-radius: 3px;
+      padding: 5px 10px;
+      @include font_UTM(normal, 14px, #949292);
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+
+    .name {
+      @include font_UTM(normal, 14px, #BDB9B9);
+    }
+
+    .programs {
+      @include font_UTM(bold, 18px, #505353);
+    }
+
+    .btn-preview {
+      background: #B2D235;
+      box-shadow: inset 0 1.5px 2px #6F8710;
+      border-radius: 22px;
+      @include font_UTM(bold, 15px, #FFFFFF);
+    }
+
+    .block-program {
+      padding: 12px 0;
+      border-top: 1px solid #F3F0F0;
+    }
+  }
+
+  .right-lesson-content {
+    .other-courses {
+      background: #FFFFFF;
+      border: 1px solid #D1D1D1;
+      box-sizing: border-box;
+
+      .title {
+        background: #B2D235;
+        border: 1px solid #DEDEDE;
+        box-sizing: border-box;
+        padding: 10px 0;
+        @include font_UTM(bold, 25px, #FFFFFF);
+      }
+
+      hr {
+        margin-left: 15px;
+        width: 90%;
+      }
+
+      .lesson-element {
+        @include font_UTM(bold, 16px, #505353);
+      }
+
+      .btn-view {
+        background: #B2D235;
+        box-shadow: inset 0 1.5px 2px #6F8710;
+        border-radius: 22px;
+        @include font_UTM(bold, 18px, #FFFFFF);
+      }
+    }
+  }
+}
+
 @import 'responsive';

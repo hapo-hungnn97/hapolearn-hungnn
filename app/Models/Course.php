@@ -41,6 +41,16 @@ class Course extends Model
         return $check;
     }
 
+    public function getUserLesson($lessonId)
+    {
+        $check = $this->users()
+            ->wherePivot('user_id', Auth::user()->id)
+            ->wherePivot('course_id', $this->id)
+            ->wherePivot('lesson_id', $lessonId)
+            ->exists();
+        return $check;
+    }
+
     public function getNumberLessonAttribute()
     {
         return $this->lessons()->count();

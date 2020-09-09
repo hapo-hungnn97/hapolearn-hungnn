@@ -57,9 +57,13 @@
                                     <br>
                                     @foreach($lessons as $key => $lesson)
                                     <div class="lesson-list d-flex justify-content-between">
-                                        {{ ++$key }} . {{ $lesson->name }}
+                                        @if($courseDetail->getUserLesson($lesson->id))
+                                        <span class="text-primary">{{ ++$key }} . {{ $lesson->name }}</span>
+                                        @else
+                                        <span>{{ ++$key }} . {{ $lesson->name }}</span>
+                                        @endif
                                         @if($courseDetail->check_user)
-                                        <a href="" class="btn btn-learn">Learn</a>
+                                        <a href="{{ Route('lesson', [ $courseDetail->id, $lesson->id ]) }}" class="btn btn-learn">Learn</a>
                                         @endif
                                     </div>
                                     @endforeach
