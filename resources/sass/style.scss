@@ -1060,7 +1060,7 @@
       box-sizing: border-box;
 
       .element {
-        padding: 10px 0px;
+        padding: 10px 0;
         @include font_UTM(bold, 25px, #BDB9B9);
       }
 
@@ -1077,7 +1077,7 @@
       .btn-view {
         background: #B2D235;
         padding: 5px 30px; 
-        box-shadow: inset 0px 1.5px 2px #6F8710;
+        box-shadow: inset 0 1.5px 2px #6F8710;
         border-radius: 22px;
         @include font_UTM(bold, 18px, #FFFFFF);
         &:hover {
@@ -1135,7 +1135,7 @@
 
     .btn-preview {
       background: #B2D235;
-      box-shadow: inset 0px 1.5px 2px #6F8710;
+      box-shadow: inset 0 1.5px 2px #6F8710;
       border-radius: 22px;
       @include font_UTM(bold, 15px, #FFFFFF);
     }
@@ -1171,7 +1171,7 @@
 
       .btn-view {
         background: #B2D235;
-        box-shadow: inset 0px 1.5px 2px #6F8710;
+        box-shadow: inset 0 1.5px 2px #6F8710;
         border-radius: 22px;
         @include font_UTM(bold, 18px, #FFFFFF);
       }
