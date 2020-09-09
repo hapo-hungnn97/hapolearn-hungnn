@@ -41,4 +41,10 @@ class CourseController extends Controller
             ->paginate(config('variable.paginate'));
         return view('user.course_detail', compact('courseDetail', 'lessons'));
     }
+
+    public function destroyUserCourse($id)
+    {
+        Auth::user()->courses()->detach($id);
+        return redirect()->route('course');
+    }
 }

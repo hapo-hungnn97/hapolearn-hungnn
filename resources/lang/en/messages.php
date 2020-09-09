@@ -10,4 +10,8 @@ return [
     'fail' => [
         'store' => 'Tạo thất bại',
     ],
+
+    'alert' => [
+        'end' => 'Bạn có chắc chắn muốn kết thúc khóa học',
+    ],
 ];
