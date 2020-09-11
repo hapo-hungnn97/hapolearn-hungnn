@@ -22,10 +22,12 @@ class ReviewController extends Controller
     public function updateLessonReview(Request $request, $id)
     {
         Review::find($id)->update([ 'content' => $request->content ]);
+        return redirect()->back();
     }
 
     public function destroyLessonReview($id)
     {
         Review::find($id)->delete();
+        return redirect()->back();
     }
 }

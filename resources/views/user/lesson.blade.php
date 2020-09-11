@@ -165,7 +165,11 @@
                                             <div class="action action-edit my-2 btn" reviewId="{{ $review->id }}">Edit comment</div>
                                             <hr class="my-0">
                                             <div class="action action-delete my-2" reviewId="{{ $review->id }}">
-                                                <button class="btn">Delete comment</button>
+                                                <form action="{{ Route('lesson-review.destroy', $review->id) }}" method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button class="btn">Delete comment</button>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="more"><i class="fas fa-ellipsis-v"></i></div>
@@ -174,11 +178,13 @@
                                         {{ $review->content }}
                                     </div>
                                     <div class="content-cmt cmt-form-{{ $review->id }} d-none ml-3 mt-2">
-                                        <form action="" class="form-edit-cmt">
+                                        <form action="{{ Route('lesson-review.update', $review->id) }}" method="POST">
+                                        @method('PUT')
+                                        @csrf
                                         <textarea class="form-control mt-1" rows="5" name="content">{{ $review->content }}</textarea>
                                         <div class="d-flex justify-content-end mt-3 pb-4">
                                             <a class="btn btn-send btn-return" reviewId="{{ $review->id }}">Return</a>
-                                            <a class="btn btn-send btn-edit ml-2" reviewId="{{ $review->id }}">Edit</a>
+                                            <input type="submit" class="btn btn-send btn-edit ml-2" value="Edit">
                                         </div>
                                         </form>
                                     </div>

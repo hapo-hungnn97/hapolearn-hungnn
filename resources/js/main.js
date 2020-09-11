@@ -123,33 +123,12 @@ $(document).ready(function () {
         $('.more-action').hide();
         var reviewId = $(this).attr('reviewId');
         $('.account-review-' + reviewId).addClass('d-none');
-
-        $.ajax({
-            type: "DELETE",
-            url: "/" + reviewId + "/review",
-            success: function () {
-                location.reload();
-            }
-        });
+        $('.account-review-' + reviewId).next().addClass('d-none');
     });
 
     $('.btn-return').click(function () {
         var reviewId = $(this).attr('reviewId');
         $('.cmt-txt-' + reviewId).removeClass('d-none');
         $('.cmt-form-' + reviewId).addClass('d-none');
-    });
-
-    $('.btn-edit').click(function () {
-        var reviewId = $(this).attr('reviewId');
-        var formData = $('.form-edit-cmt').serializeArray();
-
-        $.ajax({
-            type: "PUT",
-            url: "/" + reviewId + "/update-review",
-            data: formData,
-            success: function () {
-                location.reload();
-            }
-        });
     });
 });
