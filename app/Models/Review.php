@@ -15,7 +15,7 @@ class Review extends Model
         'two' => 2,
         'three' => 3,
         'four' => 4,
-        'five' =>5
+        'five' => 5
     ];
 
     const TYPE = [
@@ -57,7 +57,7 @@ class Review extends Model
 
     public function getRatingPercent($star, $lessonId)
     {
-        $percent = $this->getLessonRatingCount($star, $lessonId) / $this->getRateCount($lessonId) *100 . '%';
+        $percent = $this->getLessonRatingCount($star, $lessonId) / $this->getRateCount($lessonId) * 100 . '%';
         return $percent;
     }
 }
