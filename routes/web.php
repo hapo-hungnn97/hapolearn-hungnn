@@ -27,6 +27,9 @@ Route::group(['middleware' => 'auth.user'], function () {
     Route::post('/user-course', 'HomeController@createUserCourse')->name('user.courses');
     Route::delete('/{course}/course', 'CourseController@destroyUserCourse')->name('course-user.destroy');
     Route::get('/{course}/{lesson}/lesson', 'LessonController@showLesson')->name('lesson');
+    Route::post('/{lesson}', 'ReviewController@storeReview')->name('review.store');
+    Route::put('/{review}/update-review', 'ReviewController@updateLessonReview')->name('lesson-review.update');
+    Route::delete('/{review}/review', 'ReviewController@destroyLessonReview')->name('lesson-review.destroy');
     Route::get('/profile', 'HomeController@showProfile')->name('profile');
     Route::put('/profile', 'HomeController@editProfile')->name('profile.update');
     Route::put('/update-avatar', 'HomeController@updateAvatar')->name('avatar.update');

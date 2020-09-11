@@ -52,8 +52,8 @@ $(document).ready(function () {
         $('.form-logout').submit();
     });
 
-    var errorLogin = $('.input-error-login').val();
-    var errorRegister = $('.input-error-register').val();
+    let errorLogin = $('.input-error-login').val();
+    let errorRegister = $('.input-error-register').val();
     if (errorLogin === 'error') {
         $('#signModal').modal('show');
     }
@@ -77,13 +77,59 @@ $(document).ready(function () {
     $('.btn-take').click(function () {
         $('.btn-take').addClass('d-none');
 
-        var userId = $('.user-id').val();
-        var courseId = $('.cour-id').val();
-        console.log(courseId, userId);
+        let url = $('.route').val();
+        let userId = $('.user-id').val();
+        let courseId = $('.cour-id').val();
+
         $.ajax({
             type: "POST",
-            url: "/user-course",
+            url: url,
             data: { "user_id": userId, "course_id": courseId, },
         });
-    })
+    });
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function () {
+        localStorage.setItem('activeTab', $(this).attr('href'));
+    });
+    let activeTab = localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('a[href="' + activeTab + '"]').tab('show');
+    }
+
+    let fiveStar = $('.five-star-val').val();
+    let fourStar = $('.four-star-val').val();
+    let threeStar = $('.three-star-val').val();
+    let twoStar = $('.two-star-val').val();
+    let oneStar = $('.one-star-val').val();
+
+    $('.five-star').width(fiveStar);
+    $('.four-star').width(fourStar);
+    $('.three-star').width(threeStar);
+    $('.two-star').width(twoStar);
+    $('.one-star').width(oneStar);
+
+    $('.more').click(function () {
+        $('.more-action').not($(this).prev()).hide();
+        $(this).prev().toggle();
+    });
+
+    $('.action-edit').click(function () {
+        $('.more-action').hide();
+        let reviewId = $(this).attr('reviewId');
+        $('.cmt-txt-' + reviewId).addClass('d-none');
+        $('.cmt-form-' + reviewId).removeClass('d-none');
+    });
+
+    $('.action-delete').click(function () {
+        $('.more-action').hide();
+        let reviewId = $(this).attr('reviewId');
+        $('.account-review-' + reviewId).addClass('d-none');
+        $('.account-review-' + reviewId).next().addClass('d-none');
+    });
+
+    $('.btn-return').click(function () {
+        let reviewId = $(this).attr('reviewId');
+        $('.cmt-txt-' + reviewId).removeClass('d-none');
+        $('.cmt-form-' + reviewId).addClass('d-none');
+    });
 });
