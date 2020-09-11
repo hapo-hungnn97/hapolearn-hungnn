@@ -29,7 +29,7 @@
                     <div class="container mt-3 course-content">
                         <ul class="nav tab-head">
                             <li class="nav-item mt-2">
-                                <a class="nav-link active" data-toggle="tab" href="#lesson">Lesson</a>
+                                <a class="nav-link" data-toggle="tab" href="#lesson">Lesson</a>
                             </li>
                             <li class="nav-item mt-2">
                                 <a class="nav-link" data-toggle="tab" href="#teacher">Teacher</a>

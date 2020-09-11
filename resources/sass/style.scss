@@ -1144,6 +1144,126 @@
       padding: 12px 0;
       border-top: 1px solid #F3F0F0;
     }
+
+    .rate {
+      background-color: #505353;
+      border-radius: 5px;
+    }
+
+    .star-rating {
+      @include font_UTM(bold, 60px, #FFFFFF);
+    }
+
+    .number-rating {
+      @include font_UTM(bold, 16px, #FFFFFF);
+    }
+
+    .star {
+      i {
+        color: #FFD567;
+      }
+    }
+
+    .list-rate {
+      border: 1px solid #DFDFDF;
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+
+    .pro-rate {
+      margin-top: 16px;
+      width: 77%;
+      height: 9px;
+    }
+
+    .text-star {
+      @include font_UTM(bold, 16px, #505353);
+    }
+
+    .txt-number {
+      margin-top: 11px;
+      @include font_UTM(normal, 14px, #9BA2A2);
+    }
+
+    .show-review {
+      @include font_UTM(bold, 18px, #505353);
+      &:hover {
+        cursor: pointer;
+        -webkit-text-stroke-width: 0.8px;
+      }
+    }
+
+    .title-cmt {
+      width: 80%;
+    }
+
+    .img-account {
+      width: 40px;
+      height: 40px;
+    }
+
+    .user-cmt {
+      @include font_UTM(bold, 18px, #505353);
+    }
+
+    .star-cmt {
+      @include font_UTM(normal, 14px, #FFD567);
+    }
+
+    .date-cmt {
+      @include font_UTM(normal, 14px, #BDB9B9);
+    }
+
+    .content-cmt {
+      line-height: 26px;
+      @include font_UTM(normal, 18px, #949292);
+    }
+
+    .leave {
+      @include font_UTM(bold, 22px, #505353);
+    }
+
+    .mess {
+      @include font_UTM(normal, 18px, #747474);
+    }
+
+    .vote {
+      @include font_UTM(bold, 22px, #505353);
+    }
+
+    .sta {
+      @include font_UTM(normal, 18px, #747474);
+    }
+
+    .btn-send {
+      background: #B2D235;
+      border-radius: 22px;
+      padding: 3px 15px;
+      @include font_UTM(bold, 18px, #FFFFFF);
+    }
+
+    .more-action {
+      display: none;
+      background-color: #fff;
+      border: 1px solid #949292;
+      border-radius: 5px;
+      padding: 0 10px;
+      position: absolute;
+      right: 60px;
+    }
+
+    .action {
+      &:hover {
+        cursor: pointer;
+        -webkit-text-stroke-width: 0.5px;
+      }
+    }
+
+    .more {
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   .right-lesson-content {
@@ -1177,6 +1297,59 @@
       }
     }
   }
+}
+
+.rating {
+  float:left;
+  font-size: 12px;
+}
+
+.rating:not(:checked) > input {
+  position:absolute;
+  clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+  float:right;
+  width:1em;
+  padding:0 .1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:200%;
+  line-height:1.2;
+  color:#ddd;
+  text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+  content: '★ ';
+}
+
+.rating > input:checked ~ label {
+  color: #f70;
+  text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: gold;
+  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+  position:relative;
+  top:2px;
+  left:2px;
 }
 
 @import 'responsive';

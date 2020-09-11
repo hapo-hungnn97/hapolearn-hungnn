@@ -79,11 +79,78 @@ $(document).ready(function () {
 
         var userId = $('.user-id').val();
         var courseId = $('.cour-id').val();
-        console.log(courseId, userId);
+
         $.ajax({
             type: "POST",
             url: "/user-course",
             data: { "user_id": userId, "course_id": courseId, },
         });
-    })
+    });
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function () {
+        localStorage.setItem('activeTab', $(this).attr('href'));
+    });
+    var activeTab = localStorage.getItem('activeTab');
+    if (activeTab) {
+        console.log(activeTab);
+        $('a[href="' + activeTab + '"]').tab('show');
+    }
+
+    var fiveStar = $('.five-star-val').val();
+    var fourStar = $('.four-star-val').val();
+    var threeStar = $('.three-star-val').val();
+    var twoStar = $('.two-star-val').val();
+    var oneStar = $('.one-star-val').val();
+
+    $('.five-star').width(fiveStar);
+    $('.four-star').width(fourStar);
+    $('.three-star').width(threeStar);
+    $('.two-star').width(twoStar);
+    $('.one-star').width(oneStar);
+
+    $('.more').click(function () {
+        $('.more-action').not($(this).prev()).hide();
+        $(this).prev().toggle();
+    });
+
+    $('.action-edit').click(function () {
+        $('.more-action').hide();
+        var reviewId = $(this).attr('reviewId');
+        $('.cmt-txt-' + reviewId).addClass('d-none');
+        $('.cmt-form-' + reviewId).removeClass('d-none');
+    });
+
+    $('.action-delete').click(function () {
+        $('.more-action').hide();
+        var reviewId = $(this).attr('reviewId');
+        $('.account-review-' + reviewId).addClass('d-none');
+
+        $.ajax({
+            type: "DELETE",
+            url: "/" + reviewId + "/review",
+            success: function () {
+                location.reload();
+            }
+        });
+    });
+
+    $('.btn-return').click(function () {
+        var reviewId = $(this).attr('reviewId');
+        $('.cmt-txt-' + reviewId).removeClass('d-none');
+        $('.cmt-form-' + reviewId).addClass('d-none');
+    });
+
+    $('.btn-edit').click(function () {
+        var reviewId = $(this).attr('reviewId');
+        var formData = $('.form-edit-cmt').serializeArray();
+
+        $.ajax({
+            type: "PUT",
+            url: "/" + reviewId + "/update-review",
+            data: formData,
+            success: function () {
+                location.reload();
+            }
+        });
+    });
 });
