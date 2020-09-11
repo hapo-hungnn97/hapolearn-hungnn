@@ -14,7 +14,7 @@ class LessonController extends Controller
         $course = Course::find($courseId);
         $lesson = $course->lessons()->find($lessonId);
         $reviews = Review::with('user')
-            ->where('type', 2)
+            ->where('type', Review::TYPE['lesson'])
             ->where('target_id', $lessonId)
             ->get();
         $count = Review::first();

@@ -92,7 +92,6 @@ $(document).ready(function () {
     });
     var activeTab = localStorage.getItem('activeTab');
     if (activeTab) {
-        console.log(activeTab);
         $('a[href="' + activeTab + '"]').tab('show');
     }
 

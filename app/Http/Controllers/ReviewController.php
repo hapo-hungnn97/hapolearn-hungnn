@@ -13,7 +13,7 @@ class ReviewController extends Controller
     {
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
-        $data['type'] = 2;
+        $data['type'] = Review::TYPE['lesson'];
         $data['target_id'] = $lessonId;
         Review::create($data);
         return redirect()->back();
