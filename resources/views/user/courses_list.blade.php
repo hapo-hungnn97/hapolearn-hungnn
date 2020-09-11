@@ -3,12 +3,66 @@
 @section('content')
 <div class="courses-list container">
     <div class="courses-search mt-md-5 d-flex flex-row">
-        <a href="" class="btn btn-filter"><i class="fas fa-sliders-h"></i> Filter</a>
+        <a class="btn btn-filter"><i class="fas fa-sliders-h"></i> Filter</a>
         <form action="{{ Route('course.search') }}" method="POST">
             @csrf
             <input type="text" class="form-control width-search ml-md-3 ml-2" placeholder="Search..." name="search">
         </form>
         <i class="fas fa-search position-relative feedback"></i>
+        <button class="btn-search-course">Tìm kiếm</button>
+    </div>
+    <div class="row mt-3 fil">
+        <span class="txt-filter mt-3 ml-3">Lọc theo</span>
+        <span class="filter-detail mt-3">
+            <button class="active-filter">Mới nhất</button>
+        </span>
+        <span class="filter-detail mt-3">
+            <button class="active-filter">Cũ nhất</button>
+        </span>
+        <span class="form-group filter-detail mt-3">
+            <select class="form-control select-fil" id="sel1">
+                <option disabled selected hidden>Teacher</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </span>
+        <span class="form-group filter-detail mt-3">
+            <select class="form-control select-fil" id="sel1">
+                <option disabled selected hidden>Số người học</option>
+                <option>Tăng dần</option>
+                <option>Giảm dần</option>
+            </select>
+        </span>
+        <span class="form-group filter-detail mt-3">
+            <select class="form-control  select-fil" id="sel1">
+                <option disabled selected hidden>Thời gian học</option>
+                <option>Tăng dần</option>
+                <option>Giảm dần</option>
+            </select>
+        </span>
+        <span class="form-group filter-detail mt-3">
+            <select class="form-control select-fil" id="sel1">
+                <option disabled selected hidden>Số bài học</option>
+                <option>Tăng dần</option>
+                <option>Giảm dần</option>
+            </select>
+        </span>
+        <br>
+        <span class="form-group filter-tag mt-2">
+            <select class="form-control select-fil" id="sel1">
+                <option disabled selected hidden>Tags</option>
+                <option>Tăng dần</option>
+                <option>Giảm dần</option>
+            </select>
+        </span>
+        <span class="form-group filter-detail mt-2">
+            <select class="form-control select-fil" id="sel1">
+                <option disabled selected hidden>Review</option>
+                <option>Tăng dần</option>
+                <option>Giảm dần</option>
+            </select>
+        </span>
     </div>
     <div class="row">
         @foreach($courses as $course)

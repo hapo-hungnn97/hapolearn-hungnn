@@ -132,4 +132,8 @@ $(document).ready(function () {
         $('.cmt-txt-' + reviewId).removeClass('d-none');
         $('.cmt-form-' + reviewId).addClass('d-none');
     });
+
+    $('.btn-filter').click(function () {
+        $('.fil').toggle();
+    });
 });

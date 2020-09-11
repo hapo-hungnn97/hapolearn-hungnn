@@ -658,6 +658,50 @@
     }
   }
 
+  .fil {
+    background: #FFFFFF;
+    margin: 0;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  .filter-detail {
+    margin-left: 20px;
+  }
+  
+  .select-fil {
+    padding-right: 60px !important;
+  }
+  
+  .filter-tag {
+    margin-left: 100px;
+  }
+  
+  .btn-search-course {
+    background: #B2D235;
+    border: 1px solid #B2D235;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 0 12px;
+    margin-left: 205px;
+    @include font_Open(bold, 15px);
+  }
+  
+  .txt-filter {
+    color: #505353;
+    @include font_Open(bold, 16px);
+  }
+  
+  .active-filter {
+    background: #E5E6E7;
+    border-radius: 2px;
+    border: 1px solid #E5E6E7;
+    color: #505353;
+    padding: 8px 10px;
+    @include font_Open(normal, 15px);
+  }
+
   .block-content {
     border: 1px solid #F1F1F1;
     box-sizing: border-box;
