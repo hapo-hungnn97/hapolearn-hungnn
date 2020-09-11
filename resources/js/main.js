@@ -77,12 +77,13 @@ $(document).ready(function () {
     $('.btn-take').click(function () {
         $('.btn-take').addClass('d-none');
 
+        var url = $('.route').val();
         var userId = $('.user-id').val();
         var courseId = $('.cour-id').val();
 
         $.ajax({
             type: "POST",
-            url: "/user-course",
+            url: url,
             data: { "user_id": userId, "course_id": courseId, },
         });
     });

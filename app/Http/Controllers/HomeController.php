@@ -24,6 +24,8 @@ class HomeController extends Controller
     {
         $user = User::find($request->user_id);
         $user->courses()->attach($request->course_id);
+        
+        return response()->json('success', 201);
     }
 
     public function showProfile()

@@ -48,7 +48,8 @@
                                     </form>
                                     <i class="fas fa-search position-relative search-course"></i>
                                     @if(!($courseDetail->check_user))
-                                    <a href="" class="btn btn-take">Take this course</a>
+                                    <a class="btn btn-take">Take this course</a>
+                                    <input type="hidden" class="route" value="{{ Route('user.courses') }}">
                                     @endif
                                     <input type="hidden" class="user-id"  value="{{ Auth::user()->id }}">
                                     <input type="hidden" class="cour-id" value="{{ $id }}">
