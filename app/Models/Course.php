@@ -100,9 +100,9 @@ class Course extends Model
         return $this->withCount(['users' => function ($que) {
                 $que->where('lesson_id', null);
             }])
-            ->orderByDesc('users_count')
-            ->take(config('variable.course'))
-            ->get();
+        ->orderByDesc('users_count')
+        ->take(config('variable.course'))
+        ->get();
     }
 
     public function scopeFilterSearch($query, $data)
