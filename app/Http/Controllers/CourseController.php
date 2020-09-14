@@ -4,23 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\User;
+use App\Models\Tag;
 use Auth;
 
 class CourseController extends Controller
 {
     public function index()
     {
+        $data['text'] = null;
+        $teachers = User::where('role', User::ROLE['teacher'])->get();
+        $tags = Tag::all();
         $courses = Course::paginate(config('variable.paginate'));
-        return view('user.courses_list', compact('courses'));
+        return view('user.courses_list', compact('courses', 'data', 'teachers', 'tags'));
     }
 
-    public function searchCourse(Request $request)
+    public function searchCourse()
     {
-        $key = $request->search;
-        $courses = Course::where('name', 'like', '%' . $key . '%')
-            ->orwhere('description', 'like', '%' . $key . '%')
-            ->paginate(config('variable.paginate'));
-        return view('user.courses_list', compact('courses'));
+        $searchTxt = $_GET['search'];
+        $teachers = User::where('role', User::ROLE['teacher'])->get();
+        $tags = Tag::all();
+
+        $data = [
+            'text' => $_GET['search'],
+            'status' => $_GET['status'],
+            'teacher' => $_GET['teacher_id'],
+            'times' => $_GET['times'],
+            'lesson' => $_GET['lesson'],
+            'learner' => $_GET['learner'],
+            'tag' => $_GET['tag'],
+            'review' => $_GET['review'],
+        ];
+        $courses = Course::query()->FilterSearch($data)->paginate(config('variable.paginate'));
+        
+        return view('user.courses_list', compact('courses', 'data', 'teachers', 'tags'));
     }
 
     public function showCourseDetail($id)

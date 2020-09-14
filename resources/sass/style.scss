@@ -649,12 +649,12 @@
     }
 
     .width-search {
-      width: 200%;
+      width: 40%;
     }
 
     .feedback {
       top: 10px;
-      left: 17%;
+      left: -3%;
     }
   }
 
@@ -684,7 +684,6 @@
     border-radius: 5px;
     color: #FFFFFF;
     padding: 0 12px;
-    margin-left: 205px;
     @include font_Open(bold, 15px);
   }
   
@@ -695,11 +694,21 @@
   
   .active-filter {
     background: #E5E6E7;
-    border-radius: 2px;
+    border-radius: 5px;
     border: 1px solid #E5E6E7;
     color: #505353;
     padding: 8px 10px;
     @include font_Open(normal, 15px);
+    &:hover {
+      cursor: pointer;
+      color: #FFFFFF;
+      background-color: #B2D235;
+    }
+  }
+
+  .acti {
+    color: #FFFFFF;
+    background-color: #B2D235;
   }
 
   .block-content {
