@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\User;
 use App\Models\Tag;
+use App\Models\Review;
 use Auth;
 
 class CourseController extends Controller
@@ -33,8 +34,14 @@ class CourseController extends Controller
         $courseDetail = Course::find($id);
         $lessons = $courseDetail->lessons()
             ->paginate(config('variable.paginate'));
-        
-        return view('user.course_detail', compact('courseDetail', 'lessons', 'id'));
+        $teacher = User::find($courseDetail->teacher_id);
+        $reviews = Review::with('user')
+            ->where('type', Review::TYPE['course'])
+            ->where('target_id', $id)
+            ->get();
+        $count = Review::first();
+
+        return view('user.course_detail', compact('courseDetail', 'lessons', 'id', 'teacher', 'count', 'reviews'));
     }
 
     public function searchCourseDetail(Request $request, $id)
@@ -44,6 +51,7 @@ class CourseController extends Controller
         $lessons = $courseDetail->lessons()
             ->where('name', 'like', '%' . $key . '%')
             ->paginate(config('variable.paginate'));
+            
         return view('user.course_detail', compact('courseDetail', 'lessons', 'id'));
     }
 

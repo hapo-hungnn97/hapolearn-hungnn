@@ -97,7 +97,11 @@ class Course extends Model
 
     public function getOtherCourseAttribute()
     {
-        return $this->where('id', '!=', $this->id)->take(config('variable.course'))->get();
+        return $this->withCount(['users' => function ($que) {
+                $que->where('lesson_id', null);
+        }])->orderByDesc('users_count')
+        ->take(config('variable.course'))
+        ->get();
     }
 
     public function scopeFilterSearch($query, $data)
