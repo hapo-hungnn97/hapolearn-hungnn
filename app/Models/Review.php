@@ -58,7 +58,11 @@ class Review extends Model
 
     public function getRatingPercent($star, $lessonId)
     {
-        $percent = $this->getLessonRatingCount($star, $lessonId) / $this->getRateCount($lessonId) * 100 . '%';
-        return $percent;
+        if ($this->getRateCount($lessonId) == 0) {
+            return $percent = 0;
+        } else {
+            $percent = $this->getLessonRatingCount($star, $lessonId) / $this->getRateCount($lessonId) * 100 . '%';
+            return $percent;
+        }
     }
 }

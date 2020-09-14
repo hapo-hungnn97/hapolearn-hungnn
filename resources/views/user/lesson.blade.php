@@ -60,10 +60,9 @@
                                 </div>
                                 <div class="mt-5 pb-5">
                                     <span class="title-tag">Tag: </span>
-                                    <span class="tag ml-2">#learn</span>
-                                    <span class="tag ml-2">#learn</span>
-                                    <span class="tag ml-2">#learn</span>
-                                    <span class="tag ml-2">#learn</span>
+                                    @foreach($tags as $tag)
+                                    <span class="tag ml-2"># {{$tag->name}}</span>
+                                    @endforeach
                                 </div>
                             </div>
                             <div id="program" class="container tab-pane fade"><br>

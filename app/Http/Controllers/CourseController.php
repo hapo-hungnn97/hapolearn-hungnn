@@ -44,7 +44,7 @@ class CourseController extends Controller
         $lessons = $courseDetail->lessons()
             ->where('name', 'like', '%' . $key . '%')
             ->paginate(config('variable.paginate'));
-        return view('user.course_detail', compact('courseDetail', 'lessons'));
+        return view('user.course_detail', compact('courseDetail', 'lessons', 'id'));
     }
 
     public function destroyUserCourse($id)

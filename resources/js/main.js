@@ -62,7 +62,7 @@ $(document).ready(function () {
         $('.modal-title-register').trigger("click");
     }
 
-    $('.btn-take-course').click(function () {
+    $('.btn-take-course, .btn-more').click(function () {
         $('.course-id').val(
             $(this).next().val()
         );
@@ -85,6 +85,9 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: { "user_id": userId, "course_id": courseId, },
+            success: function () {
+                location.reload();
+            }
         });
     });
 

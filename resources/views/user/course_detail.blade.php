@@ -4,12 +4,12 @@
     <div class="head-detail container-fluid mt-4 d-flex align-items-center">
         <span class="pl-5">Home > All courses > Courses detail</span>
     </div>
-    <div class="detail-courses container-fluid">
+    <div class="detail-courses container-fluid pb-5">
         <div class="container">
             <div class="row">
                 <div class="left-course col-8 d-flex align-items-center justify-content-center mt-4">
                     <div class="course-banner">
-                        <img class="img-fluid img-course-banner" src="/image/Rectangle7.png" alt="">
+                        <img class="img-fluid img-course-banner" src="{{ asset('storage/' . $courseDetail->image) }}" alt="">
                     </div>
                 </div>
                 <div class="right-course col-4 mt-4">
@@ -42,9 +42,8 @@
                             <div id="lesson" class="container tab-pane active"><br>
                                 <div class="d-flex flex-row">
                                     <a href="" class="btn btn-filter"><i class="fas fa-sliders-h"></i> Filter</a>
-                                    <form action="{{ Route('course-detail.search', $courseDetail->id) }}" method="POST">
-                                        @csrf
-                                        <input type="text" class="form-control width-search ml-3" placeholder="Search..." name="search">
+                                    <form action="{{ Route('course-detail.search', $courseDetail->id) }}" method="GET">
+                                        <input type="text" class="form-control width-search ml-3" placeholder="Search..." name="search" value="{{ request('search') }}">
                                     </form>
                                     <i class="fas fa-search position-relative search-course"></i>
                                     @if(!($courseDetail->check_user))
@@ -103,7 +102,7 @@
                 </div>
                 <div class="right-course-content col-4 mt-5">
                     <div class="statistic-course">
-                        <div class="element"><i class="fas fa-users pl-3 pr-2"></i> Learners : 500</div>
+                        <div class="element"><i class="fas fa-users pl-3 pr-2"></i> Learners : {{ $courseDetail->number_learner }}</div>
                         <hr>
                         <div class="element"><i class="fas fa-newspaper pl-3 pr-2"></i> Lessons : {{ $courseDetail->number_lesson }} lesson</div>
                         <hr>

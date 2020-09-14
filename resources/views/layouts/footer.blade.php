@@ -14,7 +14,7 @@
             </ul>
         </div>
         <div class="logo col-md-4 col-7 order-md-1 d-flex flex-column align-items-center">
-            <img class="img-fluid" src="image/Hapo_Learn_white.png" alt="">
+            <img class="img-fluid" src="/image/Hapo_Learn_white.png" alt="">
             <br>
             <span class="txt-logo">
                 Interactive lessons, "on-the-go"
@@ -24,13 +24,13 @@
         </div>
         <div class="contact col-md-4 col-5 order-md-3 d-flex align-items-lg-center align-items-md-center">
             <a href="" class="d-flex flex-row align-items-center">
-                <img class="img-fluid pl-2" src="image/Group3.png" alt="" data-toggle="tooltip" data-placement="top" title="facebook.com/tuyen.dung.haposoft">
+                <img class="img-fluid pl-2" src="/image/Group3.png" alt="" data-toggle="tooltip" data-placement="top" title="facebook.com/tuyen.dung.haposoft">
             </a>
             <a href="" class="d-flex flex-row align-items-center">
-                <img class="img-fluid ml-xl-5 ml-md-4 pl-2" src="image/Group4.png" alt="" data-toggle="tooltip" data-placement="top" title="info@haposoft.com">
+                <img class="img-fluid ml-xl-5 ml-md-4 pl-2" src="/image/Group4.png" alt="" data-toggle="tooltip" data-placement="top" title="info@haposoft.com">
             </a>
             <a href="" class="d-flex flex-row align-items-center">
-                <img class="img-fluid ml-xl-5 ml-md-4 pl-2" src="image/Group5.png" alt="" data-toggle="tooltip" data-placement="top" title="+84-85-645-9898">
+                <img class="img-fluid ml-xl-5 ml-md-4 pl-2" src="/image/Group5.png" alt="" data-toggle="tooltip" data-placement="top" title="+84-85-645-9898">
             </a>
         </div>
     </div>

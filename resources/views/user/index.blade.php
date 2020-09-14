@@ -12,7 +12,7 @@
                 <br>
                 practice, peer support.
             </div>
-            <a href=""><div class="btn btn-start">Start Learning Now !</div></a>
+            <a href="{{ Route('course') }}"><div class="btn btn-start">Start Learning Now !</div></a>
         </div>
         <div class="block-messenger">
             <div class="toggle-class container-fluid">
@@ -49,7 +49,7 @@
             @foreach($courses as $course)
             <div class="content-courses col-lg-4 col-md-4 col-9">
                 <div class="head background-left d-flex align-items-center justify-content-center">
-                    <img class="img-courses img-fluid" src="{{ $course->image }}" alt="">
+                    <img class="img-courses img-fluid" src="{{ asset('storage/' . $course->image) }}" alt="">
                 </div>
                 <div class="foot text-center">
                     <div class="txt-content text-center pt-4">{{ $course->name }}</div>
@@ -70,7 +70,7 @@
             @foreach($otherCourses as $otherCourse)
             <div class="content-courses col-lg-4 col-md-4 col-9">
                 <div class="head background-left-other d-flex align-items-center justify-content-center">
-                    <img class="img-courses img-fluid img-fix" src="{{ $otherCourse->image }}" alt="">
+                    <img class="img-courses img-fluid img-fix" src="{{ asset('storage/' . $otherCourse->image) }}" alt="">
                 </div>
                 <div class="foot text-center">
                     <div class="txt-content text-center pt-4">{{ $otherCourse->name }}</div>
@@ -82,7 +82,7 @@
             @endforeach
         </div>
         <div class="all-courses text-center pb-lg-5">
-            <a href="">View All Our Courses</a>
+            <a href="{{ Route('course') }}">View All Our Courses</a>
             <span><img class="img-fluid" src="image/icon.png" alt=""></span>
         </div>
     </div>
@@ -217,7 +217,7 @@
         <span class="txt-learn">
             Become a member of our <br> growing community! 
         </span>
-        <a class="btn btn-start-learn mt-3" href="">
+        <a class="btn btn-start-learn mt-3" href="{{ Route('course') }}">
             Start Learning Now!
         </a>
     </div>
@@ -229,15 +229,15 @@
         <div class="content-statistic row text-center pb-xl-5 pb-md-4 pb-2 mt-lg-5">
             <div class="col-lg-4 col-md-4">
                 <div class="title mt-3">Courses</div>
-                <div class="data mt-3">1,568</div>
+                <div class="data mt-3">{{ $courseCount }}</div>
             </div>
             <div class="col-lg-4 col-md-4">
                 <div class="title mt-3">Lessons</div>
-                <div class="data mt-3">2,689</div>
+                <div class="data mt-3">{{ $lessonCount }}</div>
             </div>
             <div class="col-lg-4 col-md-4">
                 <div class="title mt-3">learners</div>
-                <div class="data mt-3">16,882</div>
+                <div class="data mt-3">{{ $userCount }}</div>
             </div>
         </div>
     </div>

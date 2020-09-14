@@ -57,6 +57,11 @@ class Course extends Model
         return $check;
     }
 
+    public function getNumberLearnerAttribute()
+    {
+        return $this->users()->wherePivot('lesson_id', null)->count();
+    }
+
     public function getNumberLessonAttribute()
     {
         return $this->lessons()->count();

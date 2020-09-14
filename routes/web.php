@@ -23,7 +23,7 @@ Route::get('/courses', 'CourseController@index')->name('course');
 Route::group(['middleware' => 'auth.user'], function () {
     Route::get('/search-course', 'CourseController@searchCourse')->name('course.search');
     Route::get('/{course}/course-detail', 'CourseController@showCourseDetail')->name('course.detail');
-    Route::post('/{course}/search-course', 'CourseController@searchCourseDetail')->name('course-detail.search');
+    Route::get('/{course}/search-lesson', 'CourseController@searchCourseDetail')->name('course-detail.search');
     Route::post('/user-course', 'HomeController@createUserCourse')->name('user.courses');
     Route::delete('/{course}/course', 'CourseController@destroyUserCourse')->name('course-user.destroy');
     Route::get('/{course}/{lesson}/lesson', 'LessonController@showLesson')->name('lesson');
