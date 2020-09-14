@@ -99,7 +99,7 @@ class Course extends Model
     {
         $result = null;
 
-        if($data['text']) {
+        if ($data['text']) {
             $query->where('name', 'like', '%' . $data['text'] . '%');
         }
 
