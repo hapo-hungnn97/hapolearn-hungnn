@@ -30,4 +30,14 @@ class ReviewController extends Controller
         Review::find($id)->delete();
         return redirect()->back();
     }
+
+    public function storeCourseReview(ReviewRequest $request, $courseId)
+    {
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $data['type'] = Review::TYPE['course'];
+        $data['target_id'] = $courseId;
+        Review::create($data);
+        return redirect()->back();
+    }
 }

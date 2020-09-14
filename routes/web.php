@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth.user'], function () {
     Route::post('/{lesson}', 'ReviewController@storeReview')->name('review.store');
     Route::put('/{review}/update-review', 'ReviewController@updateLessonReview')->name('lesson-review.update');
     Route::delete('/{review}/review', 'ReviewController@destroyLessonReview')->name('lesson-review.destroy');
+    Route::post('/{course}/review', 'ReviewController@storeCourseReview')->name('course-review.store');
     Route::get('/profile', 'HomeController@showProfile')->name('profile');
     Route::put('/profile', 'HomeController@editProfile')->name('profile.update');
     Route::put('/update-avatar', 'HomeController@updateAvatar')->name('avatar.update');

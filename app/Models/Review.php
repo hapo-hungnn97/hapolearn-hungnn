@@ -48,10 +48,10 @@ class Review extends Model
             ->count();
     }
 
-    public function getAvgStarLesson($lessonId)
+    public function getAvgStarLesson($type, $targetId)
     {
-        $avgStar = $this->where('type', self::TYPE['lesson'])
-            ->where('target_id', $lessonId)
+        $avgStar = $this->where('type', $type)
+            ->where('target_id', $targetId)
             ->avg('rating');
         return round($avgStar);
     }
@@ -62,6 +62,31 @@ class Review extends Model
             return $percent = 0;
         } else {
             $percent = $this->getLessonRatingCount($star, $lessonId) / $this->getRateCount($lessonId) * 100 . '%';
+            return $percent;
+        }
+    }
+
+    public function getCourseRatingCount($star, $courseId)
+    {
+        return $this->where('type', self::TYPE['course'])
+            ->where('rating', $star)
+            ->where('target_id', $courseId)
+            ->count();
+    }
+
+    public function getCourseRateCount($courseId)
+    {
+        return $this->where('type', self::TYPE['course'])
+            ->where('target_id', $courseId)
+            ->count();
+    }
+
+    public function getCourseRatingPercent($star, $courseId)
+    {
+        if ($this->getCourseRateCount($courseId) == 0) {
+            return $percent = 0;
+        } else {
+            $percent = $this->getCourseRatingCount($star, $courseId) / $this->getCourseRateCount($courseId) * 100 . '%';
             return $percent;
         }
     }
