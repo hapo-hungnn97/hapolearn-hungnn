@@ -5,7 +5,7 @@
     <form action="{{ Route('course.search') }}" method="GET">
     <div class="courses-search mt-md-5 d-flex flex-row">
         <a class="btn btn-filter"><i class="fas fa-sliders-h"></i> Filter</a>
-        <input type="text" class="form-control width-search ml-md-3 ml-2" placeholder="Search..." name="search" value="{{ $data['text'] }}">
+        <input type="text" class="form-control width-search ml-md-3 ml-2" placeholder="Search..." name="search" value="{{ $data['search'] }}">
         <i class="fas fa-search position-relative feedback"></i>
         <button class="btn-search-course">Tìm kiếm</button>
     </div>
@@ -13,13 +13,13 @@
         <span class="txt-filter mt-3 ml-3">Lọc theo</span>
         <input type="hidden" name="status" value="" class="status">
         <span class="filter-detail mt-4">
-            <a class="active-filter filter-new @if (isset($_GET['status']) && $_GET['status'] == 'new') acti @endif">Mới nhất</a>
+            <a class="active-filter filter-new @if (isset($data['status']) && $data['status'] == 'new') acti @endif">Mới nhất</a>
         </span>
         <span class="filter-detail mt-4">
-            <a class="active-filter filter-old @if (isset($_GET['status']) && $_GET['status'] == 'old') acti @endif">Cũ nhất</a>
+            <a class="active-filter filter-old @if (isset($data['status']) && $data['status'] == 'old') acti @endif">Cũ nhất</a>
         </span>
         <span class="form-group filter-detail mt-3">
-            <select class="form-control select-fil" name="teacher_id">
+            <select class="form-control select-fil" name="teacher">
                 <option value="">Teacher</option>
                 @foreach($teachers as $teacher)
                     @if(isset($data['teacher']) && $data['teacher'] == $teacher->id)

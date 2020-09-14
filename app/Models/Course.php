@@ -99,8 +99,8 @@ class Course extends Model
     {
         $result = null;
 
-        if ($data['text']) {
-            $query->where('name', 'like', '%' . $data['text'] . '%');
+        if ($data['search']) {
+            $query->where('name', 'like', '%' . $data['search'] . '%');
         }
 
         if ($data['status']) {
@@ -144,8 +144,9 @@ class Course extends Model
         }
 
         if ($data['tag']) {
-            $query->join('course_tag', 'courses.id', '=', 'course_tag.course_id')
-                ->where('course_tag.tag_id', $data['tag']);
+            $query->whereHas('tags', function ($que) use($data) {
+                $que->where('tag_id', $data['tag']);
+            });
         }
 
         if ($data['review']) {

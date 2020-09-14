@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function showProfile()
     {
         $user = Auth::user();
-        $courses = $user->courses()->get();
+        $courses = $user->courses()->wherePivot('lesson_id', null)->get();
 
         return view('user.profile', compact('user', 'courses'));
     }
