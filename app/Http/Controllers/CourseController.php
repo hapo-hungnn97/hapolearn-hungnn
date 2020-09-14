@@ -21,7 +21,6 @@ class CourseController extends Controller
 
     public function searchCourse()
     {
-        $searchTxt = $_GET['search'];
         $teachers = User::where('role', User::ROLE['teacher'])->get();
         $tags = Tag::all();
 
@@ -36,7 +35,7 @@ class CourseController extends Controller
             'review' => $_GET['review'],
         ];
         $courses = Course::query()->FilterSearch($data)->paginate(config('variable.paginate'));
-        
+
         return view('user.courses_list', compact('courses', 'data', 'teachers', 'tags'));
     }
 
