@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/courses', 'CourseController@index')->name('course');
 
 Route::group(['middleware' => 'auth.user'], function () {
-    Route::post('search-course', 'CourseController@searchCourse')->name('course.search');
+    Route::get('/search-course', 'CourseController@searchCourse')->name('course.search');
     Route::get('/{course}/course-detail', 'CourseController@showCourseDetail')->name('course.detail');
     Route::post('/{course}/search-course', 'CourseController@searchCourseDetail')->name('course-detail.search');
     Route::post('/user-course', 'HomeController@createUserCourse')->name('user.courses');

@@ -4,23 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\User;
+use App\Models\Tag;
 use Auth;
 
 class CourseController extends Controller
 {
     public function index()
     {
+        $teachers = User::where('role', User::ROLE['teacher'])->get();
+        $tags = Tag::all();
         $courses = Course::paginate(config('variable.paginate'));
-        return view('user.courses_list', compact('courses'));
+        return view('user.courses_list', compact('courses', 'teachers', 'tags'));
     }
 
     public function searchCourse(Request $request)
     {
-        $key = $request->search;
-        $courses = Course::where('name', 'like', '%' . $key . '%')
-            ->orwhere('description', 'like', '%' . $key . '%')
-            ->paginate(config('variable.paginate'));
-        return view('user.courses_list', compact('courses'));
+        $teachers = User::where('role', User::ROLE['teacher'])->get();
+        $tags = Tag::all();
+        $data = $request->all();
+        $courses = Course::query()->FilterSearch($data)->paginate(config('variable.paginate'));
+
+        return view('user.courses_list', compact('courses', 'teachers', 'tags'));
     }
 
     public function showCourseDetail($id)

@@ -132,4 +132,28 @@ $(document).ready(function () {
         $('.cmt-txt-' + reviewId).removeClass('d-none');
         $('.cmt-form-' + reviewId).addClass('d-none');
     });
+
+    $('.btn-filter').click(function () {
+        $('.fil').toggle();
+    });
+
+    $('.filter-new').click(function () {
+        if ($('.filter-new').hasClass('acti')) {
+            $('.filter-new').removeClass('acti');
+        } else {
+            $(this).addClass('acti');
+            $('.filter-old').removeClass('acti');
+            $('.status').val('new');
+        }
+    });
+
+    $('.filter-old').click(function () {
+        if ($('.filter-old').hasClass('acti')) {
+            $('.filter-old').removeClass('acti');
+        } else {
+            $(this).addClass('acti');
+            $('.filter-new').removeClass('acti');
+            $('.status').val('old');
+        }
+    })
 });

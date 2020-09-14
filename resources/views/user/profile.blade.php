@@ -68,7 +68,9 @@
                     <div class="">
                         <img src="{{ asset('storage/' . $course->image) }}" alt="" class="img-fluid img-cour rounded-circle mx-3">
                         <br>
-                        <span>{{ $course->name }}</span>
+                        <div class="text-center">
+                            <span>{{ $course->name }}</span>
+                        </div>
                     </div>
                     @endforeach
                     <div>
