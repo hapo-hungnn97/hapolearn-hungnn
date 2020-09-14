@@ -79,7 +79,7 @@
             <div class="block-content">
                 <div class="row mt-4">
                     <div class="col-3">
-                        <img class="img-fluid d-flex mx-lg-auto ml-2" src="{{ $course->image }}" alt="">
+                        <img class="img-fluid img-cou rounded-circle d-flex mx-lg-auto ml-2" src="{{ asset('storage/' . $course->image) }}" alt="">
                     </div>
                     <div class="col-9 block-remove">
                         <div class="courses-title">
@@ -89,22 +89,23 @@
                             {{ $course->description }}
                         </div>
                         <div class="d-flex justify-content-end mt-4 mr-n4">
-                            <a href="{{ Route('course.detail', $course->id) }}" class="btn btn-more">More</a>
+                            <a href="{{ Route('course.detail', $course->id) }}" class="btn btn-more" {{ Auth::user() ? '' : 'data-toggle=modal data-target=#signModal' }}>More</a>
+                            <input type="hidden"  value="{{ $course->id }}">
                         </div>
                     </div>
                 </div>
                 <div class="row text-center mt-4 pb-4">
                     <div class="col-4">
                         <div class="title">Learners</div>
-                        <div class="data">16,882</div>
+                        <div class="data">{{ $course->number_learner }}</div>
                     </div>
                     <div class="col-4">
                         <div class="title">Lessons</div>
-                        <div class="data">2,689</div>
+                        <div class="data">{{ $course->number_lesson }}</div>
                     </div>
                     <div class="col-4">
                         <div class="title">Quizzes</div>
-                        <div class="data">16,882</div>
+                        <div class="data">{{ $course->quizze }}</div>
                     </div>
                 </div>
             </div>

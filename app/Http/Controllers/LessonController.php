@@ -18,11 +18,12 @@ class LessonController extends Controller
             ->where('target_id', $lessonId)
             ->get();
         $count = Review::first();
+        $tags = $course->tags;
         
         if (!($course->getUserLesson($lessonId))) {
             Auth::user()->courses()->attach($courseId, ['lesson_id' => $lessonId]);
         }
 
-        return view('user.lesson', compact('course', 'lesson', 'reviews', 'count'));
+        return view('user.lesson', compact('course', 'lesson', 'reviews', 'count', 'tags'));
     }
 }

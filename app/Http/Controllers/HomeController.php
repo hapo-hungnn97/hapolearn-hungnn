@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\AvatarUpdateRequest;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Models\User;
 use Auth;
 use Illuminate\Support\Facades\Storage;
@@ -14,10 +15,15 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $courseCount = Course::all()->count();
+        $lessonCount = Lesson::all()->count();
+        $userCount = User::where('role', User::ROLE['user'])
+                ->whereHas('courses')
+                ->count();
         $courses = Course::orderBy('id', 'ASC')->limit(3)->get();
         $otherCourses = Course::orderBy('id', 'DESC')->limit(3)->get();
 
-        return view('user.index', compact('courses', 'otherCourses'));
+        return view('user.index', compact('courses', 'otherCourses', 'courseCount', 'lessonCount', 'userCount'));
     }
 
     public function createUserCourse(Request $request)

@@ -711,6 +711,11 @@
     background-color: #B2D235;
   }
 
+  .img-cou {
+    width: 89px;
+    height: 89px;
+  }
+
   .block-content {
     border: 1px solid #F1F1F1;
     box-sizing: border-box;
@@ -867,7 +872,6 @@
     }
 
     li {
-      border-bottom: 2px solid $main_color;
       @include font_UTM(bold, 23px, #505353);
     }
   }
@@ -1147,6 +1151,10 @@
     .lesson-content {
       background: #FFFFFF;
       border-radius: 10px;
+
+      ul {
+        border-bottom: 1px solid #DADADA;
+      }
 
       li {
         @include font_UTM(bold, 20px, #505353);
