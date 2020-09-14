@@ -12,11 +12,10 @@ class CourseController extends Controller
 {
     public function index()
     {
-        $data['search'] = null;
         $teachers = User::where('role', User::ROLE['teacher'])->get();
         $tags = Tag::all();
         $courses = Course::paginate(config('variable.paginate'));
-        return view('user.courses_list', compact('courses', 'data', 'teachers', 'tags'));
+        return view('user.courses_list', compact('courses', 'teachers', 'tags'));
     }
 
     public function searchCourse(Request $request)
@@ -24,10 +23,9 @@ class CourseController extends Controller
         $teachers = User::where('role', User::ROLE['teacher'])->get();
         $tags = Tag::all();
         $data = $request->all();
-
         $courses = Course::query()->FilterSearch($data)->paginate(config('variable.paginate'));
 
-        return view('user.courses_list', compact('courses', 'data', 'teachers', 'tags'));
+        return view('user.courses_list', compact('courses', 'teachers', 'tags'));
     }
 
     public function showCourseDetail($id)
