@@ -144,7 +144,7 @@ class Course extends Model
         }
 
         if ($data['tag']) {
-            $query->whereHas('tags', function ($que) use($data) {
+            $query->whereHas('tags', function ($que) use ($data) {
                 $que->where('tag_id', $data['tag']);
             });
         }
