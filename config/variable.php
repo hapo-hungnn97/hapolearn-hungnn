@@ -1,5 +1,5 @@
 <?php
     return [
-        'paginate' => 10,
+        'paginate' => 6,
         'course' => 5,
     ];

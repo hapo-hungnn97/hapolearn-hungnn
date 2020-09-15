@@ -70,8 +70,8 @@
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Email:</label>
-                        <input type="email" class="form-control form-input" id="recipient-name" name="email_register" value="{{ old('email_register') }}">
-                        @error('email_register')
+                        <input type="email" class="form-control form-input" id="recipient-name" name="email" value="{{ old('email') }}">
+                        @error('email')
                             <span role="alert" class="text-danger">
                                 <error>{{ $message }}</error>
                             </span>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="form-label">Repeat Password:</label>
-                        <input type="password" class="form-control form-input" id="recipient-name" name="password_confirmation">
+                        <input type="password" class="form-control form-input" id="recipient-name" name="password_register_confirmation">
                     </div>
                     <div class="text-center mt-5 pb-5">
                         <button class="btn btn-register">REGISTER</button>

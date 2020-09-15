@@ -4,10 +4,11 @@
 <h2 class="mt-5">User List</h2>
 <a href="{{ Route('admin.users.create') }}" class="btn btn-success my-3">
     <i class="fa fa-user-plus" aria-hidden="true"></i>
-</a> 
-    @if(Session::has('message'))
-        <div class="alert alert-success">{{ Session::get('message') }}</div>
-    @endif         
+</a>
+@if(Session::has('message'))
+    <div class="alert alert-success">{{ Session::get('message') }}</div>
+@endif 
+<div class="card">        
     <table class="table">
         <thead>
             <tr>
@@ -51,6 +52,6 @@
             @endforeach()
         </tbody>
     </table>
-
+</div>
     {{ $users->links() }}
 @endsection

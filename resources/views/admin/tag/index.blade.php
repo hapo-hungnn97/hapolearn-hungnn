@@ -4,10 +4,11 @@
 <h2 class="mt-5">Tag List</h2>
 <a href="{{ Route('admin.tags.create') }}" class="btn btn-success my-3">
     <i class="fa fa-plus" aria-hidden="true"></i>
-</a> 
-    @if(Session::has('message'))
-        <div class="alert alert-success">{{ Session::get('message') }}</div>
-    @endif         
+</a>
+@if(Session::has('message'))
+    <div class="alert alert-success">{{ Session::get('message') }}</div>
+@endif
+<div class="card">         
     <table class="table">
         <thead>
             <tr>
@@ -20,7 +21,7 @@
             @foreach($tags as $tag)
             <tr>
                 <td>{{ $tag->id }}</td>
-                <td><h4><span class="badge badge-secondary">{{ $tag->name }}</span></h4></td>
+                <td><h4><span class="badge badge-secondary">#{{ $tag->name }}</span></h4></td>
                 <td class="form-inline">
                     <a href="{{ Route('admin.tags.edit', $tag->id) }}" class="btn btn-info mr-2">
                         <i class="fa fa-edit" aria-hidden="true"></i>
@@ -37,6 +38,6 @@
             @endforeach()
         </tbody>
     </table>
-
+</div>
     {{ $tags->links() }}
 @endsection

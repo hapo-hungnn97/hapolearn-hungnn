@@ -1,7 +1,8 @@
 @extends('admin.admin')
 @section('title','Admin - course-list')
 @section('contents')
-<h2 class="mt-5">Course-List</h2>   
+<h2 class="mt-5">Course-List</h2>
+<div class="card">  
     <table class="table">
         <thead>
             <tr>
@@ -22,6 +23,6 @@
             @endforeach()
         </tbody>
     </table>
-
+</div>
     {{ $courses->links() }}
 @endsection
