@@ -160,19 +160,7 @@ $(document).ready(function () {
         }
     })
 
-    $('select[name="learner"]').change(function () {
-        $('select[name="times"], select[name="lesson"], select[name="review"]').val('');
-    });
-
-    $('select[name="times"]').change(function () {
-        $('select[name="learner"], select[name="lesson"], select[name="review"]').val('');
-    });
-
-    $('select[name="lesson"]').change(function () {
-        $('select[name="times"], select[name="learner"], select[name="review"]').val('');
-    });
-
-    $('select[name="review"]').change(function () {
-        $('select[name="times"], select[name="lesson"], select[name="learner"]').val('');
+    $('.select-est').change(function () {
+        $('.select-est').not($(this)).val('');
     });
 });
