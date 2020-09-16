@@ -30,6 +30,15 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function searchCourse(Request $request)
+    {
+        $courses = Course::where('name', 'like', '%' . $request->search . '%')
+            ->paginate(config('variable.paginate'));
+            
+        return view('admin.course.index', compact('courses'));
+    }
+     
     public function create()
     {
         $tags = Tag::all();
@@ -105,7 +114,7 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CourseRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
         if ($request->hasFile('image')) {

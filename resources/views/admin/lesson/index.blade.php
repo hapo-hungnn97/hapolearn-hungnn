@@ -4,7 +4,11 @@
 <h2 class="mt-5">Lesson List - {{ $courseName }}</h2>
 <a href="{{ Route('admin.lesson.create', $id) }}" class="btn btn-success my-3">
     <i class="fa fa-plus" aria-hidden="true"></i>
-</a> 
+</a>
+<form action="{{ Route('admin.lesson.search', $id) }}" method="GET">
+    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+</form>
+<br>
 @if(Session::has('message'))
     <div class="alert alert-success">{{ Session::get('message') }}</div>
 @endif

@@ -126,87 +126,36 @@
             </span>
         </div>
         <div class="slide-block row mt-5">
+            @foreach($reviews as $review)
             <div class="block-cmt d-flex flex-column col-lg-6 col-12">
                 <div class="element-cmt d-flex flex-row mx-auto">
                     <div class="pt-4">
                         <img class="hr ml-4" src="image/Rectangle21.png" alt="">
                     </div>
                     <div class="cmt ml-2">
-                        <p> “A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course.
-                        <br>
-                            Thank you Eddie Bryan.”
+                        <p> 
+                            {{ $review->content }}
                         </p>
                     </div>
                 </div>
                 <div class="element-account d-flex flex-row">
-                    <img class="img-fluid img-account ml-lg-3" src="image/Ellipse1.png" alt="">
+                    <img class="img-fluid img-account ml-lg-3" src="{{ asset('storage/' . $review->user->avatar) }}" alt="">
                     <div class="block-infor ml-2 d-flex flex-column">
-                        <span class="txt-name">Hoang Anh Nguyen</span>
-                        <span class="txt-lang">PHP</span>
+                        <span class="txt-name">{{ $review->user->name }}</span>
+                        <span class="txt-lang">{{ $review->course->name }}</span>
                         <span>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="far fa-star"></i>
+                        @for ($i = 0; $i < 5; $i++)
+                            @if ($i < $review->rating)
+                                <i class="fa fa-star"></i>
+                            @else
+                                <i class="far fa-star"></i>
+                            @endif
+                        @endfor
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="block-cmt d-flex flex-column col-lg-6 col-12">
-                <div class="element-cmt d-flex flex-row mx-auto">
-                    <div class="pt-4">
-                        <img class="hr ml-4" src="image/Rectangle21.png" alt="">
-                    </div>
-                    <div class="cmt ml-2">
-                        <p> “A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course.
-                        <br>
-                        Thank you Eddie Bryan.”
-                        </p>
-                    </div>
-                </div>
-                <div class="element-account d-flex flex-row">
-                    <img class="img-fluid img-account ml-lg-3" src="image/Ellipse1.png" alt="">
-                    <div class="block-infor ml-2 d-flex flex-column">
-                        <span class="txt-name">Tuan Tran Hoang</span>
-                        <span class="txt-lang">Python</span>
-                        <span>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-alt"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="block-cmt d-flex flex-column col-lg-6 col-12">
-                <div class="element-cmt d-flex flex-row mx-auto">
-                    <div class="pt-4">
-                        <img class="hr ml-4" src="image/Rectangle21.png" alt="">
-                    </div>
-                    <div class="cmt ml-2">
-                        <p> “A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course.
-                        <br>
-                        Thank you Eddie Bryan.”
-                        </p>
-                    </div>
-                </div>
-                <div class="element-account d-flex flex-row">
-                    <img class="img-fluid img-account ml-lg-3" src="image/Ellipse1.png" alt="">
-                    <div class="block-infor ml-2 d-flex flex-column">
-                        <span class="txt-name">Tuan Tran Hoang</span>
-                        <span class="txt-lang">Python</span>
-                        <span>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-alt"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="controls-top row d-flex justify-content-between position-relative">
           <a class="btn-sm prev"><i class="fas fa-chevron-left"></i></a>

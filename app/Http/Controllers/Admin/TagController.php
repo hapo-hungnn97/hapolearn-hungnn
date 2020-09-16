@@ -25,6 +25,13 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function searchTag(Request $request)
+    {
+        $tags = Tag::where('name', 'like', '%' . $request->search . '%')
+            ->paginate(config('variable.paginate'));
+        return view('admin.tag.index', compact('tags'));
+    }
+
     public function create()
     {
         return view('admin.tag.add');

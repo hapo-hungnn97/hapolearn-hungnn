@@ -26,6 +26,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function searchUser(Request $request)
+    {
+        $users = User::where('name', 'like', '%' . $request->search . '%')
+            ->paginate(config('variable.paginate'));
+            
+        return view('admin.user.index', compact('users'));
+    }
+
     public function create()
     {
         return view('admin.user.add');
