@@ -26,11 +26,11 @@ class HomeController extends Controller
         $reviews = Review::where('type', Review::TYPE['course'])->with(['user', 'course'])->get();
 
         return view('user.index', compact(
-            'courses', 
-            'otherCourses', 
-            'courseCount', 
-            'lessonCount', 
-            'userCount', 
+            'courses',
+            'otherCourses',
+            'courseCount',
+            'lessonCount',
+            'userCount',
             'reviews'
         ));
     }
