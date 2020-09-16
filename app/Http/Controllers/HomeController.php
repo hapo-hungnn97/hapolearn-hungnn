@@ -25,7 +25,14 @@ class HomeController extends Controller
         $otherCourses = Course::orderBy('id', 'DESC')->limit(3)->get();
         $reviews = Review::where('type', Review::TYPE['course'])->with(['user', 'course'])->get();
 
-        return view('user.index', compact('courses', 'otherCourses', 'courseCount', 'lessonCount', 'userCount', 'reviews'));
+        return view('user.index', compact(
+            'courses', 
+            'otherCourses', 
+            'courseCount', 
+            'lessonCount', 
+            'userCount', 
+            'reviews'
+        ));
     }
 
     public function createUserCourse(Request $request)

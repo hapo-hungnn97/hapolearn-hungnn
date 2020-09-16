@@ -38,7 +38,9 @@ class LessonController extends Controller
     {
         $course = Course::findOrFail($id);
         $courseName = $course->name;
-        $lessons = $course->lessons()->where('name', 'like', '%' . $request->search . '%')->paginate(config('variable.paginate'));
+        $lessons = $course->lessons()
+            ->where('name', 'like', '%' . $request->search . '%')
+            ->paginate(config('variable.paginate'));
         return view('admin.lesson.index', compact('lessons', 'courseName', 'id'));
     }
 
