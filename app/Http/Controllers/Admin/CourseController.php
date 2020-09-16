@@ -70,17 +70,12 @@ class CourseController extends Controller
                 'teacher_id' => Auth::user()->id,
             ]);
 
-            $courseId = Course::where('name', $request->name)->first()->id;
+            $course = Course::where('name', $request->name)->first();
             $tags = $request->tagId;
 
             if (!empty($tags)) {
-                foreach ($tags as $key) {
-                    $data = [
-                        'course_id' => $courseId,
-                        'tag_id' => $key,
-                    ];
-        
-                    CourseTag::create($data);
+                foreach ($tags as $tagId) {
+                    $course->tags()->attach($tagId);
                 }
             }
 
