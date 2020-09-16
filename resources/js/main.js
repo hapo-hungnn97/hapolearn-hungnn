@@ -159,4 +159,28 @@ $(document).ready(function () {
             $('.status').val('old');
         }
     })
+
+    $('select[name="learner"]').change(function () {
+        $('select[name="times"]').val('');
+        $('select[name="lesson"]').val('');
+        $('select[name="review"]').val('');
+    });
+
+    $('select[name="times"]').change(function () {
+        $('select[name="learner"]').val('');
+        $('select[name="lesson"]').val('');
+        $('select[name="review"]').val('');
+    });
+
+    $('select[name="lesson"]').change(function () {
+        $('select[name="times"]').val('');
+        $('select[name="learner"]').val('');
+        $('select[name="review"]').val('');
+    });
+
+    $('select[name="review"]').change(function () {
+        $('select[name="times"]').val('');
+        $('select[name="lesson"]').val('');
+        $('select[name="learner"]').val('');
+    });
 });
