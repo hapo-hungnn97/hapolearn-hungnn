@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="left-course-content col-8 mt-4 pb-5">
                     <div class="container mt-3 course-content">
-                        <ul class="nav tab-head">
+                        <ul class="nav tab-head tab-title">
                             <li class="nav-item mt-2">
                                 <a class="nav-link" data-toggle="tab" href="#lesson">Lesson</a>
                             </li>
@@ -100,10 +100,14 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-4 rate d-flex flex-column align-items-center py-3 ml-3">
-                                            <div class="star-rating">{{ $count->getAvgStarLesson(App\Models\Review::TYPE['course'], $id) }}</div>
+                                            <div class="star-rating">{{ $count->getAvgStarLesson(App\Models\Review::TYPE['course'], $id) }}/5</div>
                                             <div class="star">
-                                                @for ($j = 0; $j < $count->getAvgStarLesson(App\Models\Review::TYPE['course'], $id); $j++)
-                                                    <i class="fa fa-star ml-1"></i>
+                                                @for ($i = 0; $i < 5; $i++)
+                                                    @if ($i< $count->getAvgStarLesson(App\Models\Review::TYPE['course'], $id))
+                                                        <i class="fa fa-star ml-1"></i>
+                                                    @else
+                                                        <i class="far fa-star ml-1"></i>
+                                                    @endif
                                                 @endfor
                                             </div>
                                             <div class="number-rating pb-3">{{ $count->getCourseRateCount($id) }} Ratings</div>

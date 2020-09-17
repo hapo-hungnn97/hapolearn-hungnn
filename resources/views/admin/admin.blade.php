@@ -137,12 +137,6 @@
                                     <p>Danh sách bài học</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fa fa-circle nav-icon"></i>
-                                    <p>Thêm bài học</p>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li class="nav-item has-treeview menu-open">

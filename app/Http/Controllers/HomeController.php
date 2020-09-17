@@ -8,6 +8,7 @@ use App\Http\Requests\AvatarUpdateRequest;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\User;
+use App\Models\Review;
 use Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,8 +23,16 @@ class HomeController extends Controller
                 ->count();
         $courses = Course::orderBy('id', 'ASC')->limit(3)->get();
         $otherCourses = Course::orderBy('id', 'DESC')->limit(3)->get();
+        $reviews = Review::where('type', Review::TYPE['course'])->with(['user', 'course'])->get();
 
-        return view('user.index', compact('courses', 'otherCourses', 'courseCount', 'lessonCount', 'userCount'));
+        return view('user.index', compact(
+            'courses',
+            'otherCourses',
+            'courseCount',
+            'lessonCount',
+            'userCount',
+            'reviews'
+        ));
     }
 
     public function createUserCourse(Request $request)

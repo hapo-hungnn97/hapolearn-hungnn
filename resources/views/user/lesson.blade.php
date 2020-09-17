@@ -61,7 +61,7 @@
                                 <div class="mt-5 pb-5">
                                     <span class="title-tag">Tag: </span>
                                     @foreach($tags as $tag)
-                                    <span class="tag ml-2"><a href="">#{{$tag->name}}</a></span>
+                                    <span class="tag ml-2"><a href="{{ '/search-course?search=&status=&teacher=&learner=&times=&lesson=&review=&tag=' . $tag->id }}">#{{$tag->name}}</a></span>
                                     @endforeach
                                 </div>
                             </div>
@@ -89,10 +89,14 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-4 rate d-flex flex-column align-items-center py-3 ml-3">
-                                            <div class="star-rating">{{ $count->getAvgStarLesson(App\Models\Review::TYPE['lesson'], $lesson->id) }}</div>
+                                            <div class="star-rating">{{ $count->getAvgStarLesson(App\Models\Review::TYPE['lesson'], $lesson->id) }}/5</div>
                                             <div class="star">
-                                                @for ($j = 0; $j < $count->getAvgStarLesson(App\Models\Review::TYPE['lesson'], $lesson->id); $j++)
-                                                    <i class="fa fa-star ml-1"></i>
+                                                @for ($i = 0; $i < 5; $i++)
+                                                    @if ($i < $count->getAvgStarLesson(App\Models\Review::TYPE['lesson'], $lesson->id))
+                                                        <i class="fa fa-star ml-1"></i>
+                                                    @else
+                                                        <i class="far fa-star ml-1"></i>
+                                                    @endif
                                                 @endfor
                                             </div>
                                             <div class="number-rating pb-3">{{ $count->getRateCount($lesson->id) }} Ratings</div>
@@ -104,7 +108,7 @@
                                                     <div class="progress-bar five-star" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                     <input type="hidden" class="five-star-val" value="{{ $count->getRatingPercent(App\Models\Review::STAR['five'], $lesson->id) }}">
                                                 </div>
-                                                <div class="txt-number ml-2">{{ $count->getLessonRatingCount(App\Models\Review::TYPE['lesson'], App\Models\Review::STAR['five'], $lesson->id) }}</div>
+                                                <div class="txt-number ml-2">{{ $count->getLessonRatingCount(App\Models\Review::STAR['five'], $lesson->id) }}</div>
                                             </div>
                                             <div class="d-flex flex-row">
                                                 <div class="text-star mt-2">4 stars</div>

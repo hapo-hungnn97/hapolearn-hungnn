@@ -33,6 +33,11 @@ class Review extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'target_id');
+    }
+
     public function getLessonRatingCount($star, $lessonId)
     {
         return $this->where('type', self::TYPE['lesson'])

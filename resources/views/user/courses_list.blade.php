@@ -31,21 +31,21 @@
             </select>
         </span>
         <span class="form-group filter-detail mt-3">
-            <select class="form-control select-fil" name="learner">
+            <select class="form-control select-fil select-est" name="learner">
                 <option value="">Số người học</option>
                 <option value="asc" @if (request('learner') == 'asc') selected @endif>Tăng dần</option>
                 <option value="desc" @if (request('learner') == 'desc') selected @endif>Giảm dần</option>
             </select>
         </span>
         <span class="form-group filter-detail mt-3">
-            <select class="form-control  select-fil" name="times">
+            <select class="form-control  select-fil select-est" name="times">
                 <option value="">Thời gian học</option>
                 <option value="asc" @if (request('times') == 'asc') selected @endif>Tăng dần</option>
                 <option value="desc" @if (request('times') == 'desc') selected @endif>Giảm dần</option>
             </select>
         </span>
         <span class="form-group filter-detail mt-3">
-            <select class="form-control select-fil" name="lesson">
+            <select class="form-control select-fil select-est" name="lesson">
                 <option value="">Số bài học</option>
                 <option value="asc" @if (request('lesson') == 'asc') selected @endif>Tăng dần</option>
                 <option value="desc" @if (request('lesson') == 'desc') selected @endif>Giảm dần</option>
@@ -65,7 +65,7 @@
             </select>
         </span>
         <span class="form-group filter-detail mt-2">
-            <select class="form-control select-fil" name="review">
+            <select class="form-control select-fil select-est" name="review">
                 <option value="">Review</option>
                 <option value="asc" @if (request('review') == 'asc') selected @endif>Tăng dần</option>
                 <option value="desc" @if (request('review') == 'desc') selected @endif>Giảm dần</option>

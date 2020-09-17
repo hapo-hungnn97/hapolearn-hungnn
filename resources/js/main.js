@@ -159,4 +159,8 @@ $(document).ready(function () {
             $('.status').val('old');
         }
     })
+
+    $('.select-est').change(function () {
+        $('.select-est').not($(this)).val('');
+    });
 });

@@ -34,6 +34,16 @@ class LessonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function searchLesson(Request $request, $id)
+    {
+        $course = Course::findOrFail($id);
+        $courseName = $course->name;
+        $lessons = $course->lessons()
+            ->where('name', 'like', '%' . $request->search . '%')
+            ->paginate(config('variable.paginate'));
+        return view('admin.lesson.index', compact('lessons', 'courseName', 'id'));
+    }
+
     public function create($id)
     {
         return view('admin.lesson.add', compact('id'));
